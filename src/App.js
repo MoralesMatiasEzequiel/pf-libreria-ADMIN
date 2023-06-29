@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import style from "./App.module.css";
+import axios from "axios";
+import { Home } from "../src/components/views/index";
+import { Routes, Route, useLocation } from "react-router-dom";
+
+axios.defaults.baseURL = "http://localhost:3001"; 
 
 function App() {
+
+  // const location = useLocation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.container}>
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
     </div>
   );
 }
