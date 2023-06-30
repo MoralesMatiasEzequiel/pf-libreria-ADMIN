@@ -1,9 +1,15 @@
+:root {
+    --bgsidebar: #FF9E5C;
+    --fontbtn: #000000;
+}
+
 .container {
     position: fixed;
     width: 15rem;
     height: 100%;
-    background-color: #FF9E5C;
-    color: black;
+    top: 0;
+    background-color:var(--bgsidebar) ;
+    color: var(--fontbtn);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +32,7 @@
 }
 
 .namecont p {
-    
+
     margin: 0 0 0 10px;
 }
 
@@ -54,7 +60,18 @@
     gap: 3.2em;
 
 }
+.btnNav{
+    text-decoration: none;
+    color: var(--fontbtn);
+    display: flex;
+    align-items: center;
+}
 
+.divli {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
 
 .rutsul li:nth-child(3) {
     margin: 0 0 0 15%;

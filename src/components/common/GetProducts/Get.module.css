@@ -1,0 +1,44 @@
+.postcont {
+    background-color: rgb(128, 128, 122);
+    margin: 15px;
+    padding: 10px;
+}
+
+.filandor {
+    display: flex;
+    background-color: violet;
+    justify-content: space-around;
+}
+
+.list {
+    list-style: none;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    overflow-y: auto;
+    padding: 0;
+
+}
+
+.titlelist {
+    display: flex;
+    height: 40px;
+    width: 150vw;
+    padding-left: 10px;
+}
+
+.li {
+    display: flex;
+    border: 1px #999 solid;
+    gap: 1em;
+}
+
+.liid {
+    width: 180px;
+    padding-left: 100px;
+}
+
+.liname {
+    width: 150px;
+}
