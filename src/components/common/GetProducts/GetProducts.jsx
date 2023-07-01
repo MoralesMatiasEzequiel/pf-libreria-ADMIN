@@ -1,15 +1,15 @@
 import { useSelector } from "react-redux";
-import style from "./Get.module.css";
+import style from "./GetProducts.module.css";
 
-const Get = () => {
+const GetProducts = () => {
 
     const { products } = useSelector(state => state.products);
 
     return (
         <div className={style.postcont}>
             <div className={style.filandor}>
-                <p>filtrar por : </p>
-                <p>ordenar por :</p>
+                <p>Filtrar por: </p>
+                <p>Ordenar por: </p>
             </div>
 
 
@@ -17,14 +17,14 @@ const Get = () => {
             <ul className={style.list}>
 
                 <div className={style.titlelist}>
-                    <p className={style.liid}> id: </p>
-                    <p className={style.liname}>titulo:</p>
-                    <p>marca:</p>
-                    <p>precio:</p>
-                    <p>stock:</p>
-                    <p>sub-categ:</p>
-                    <p>rating:</p>
-                    <p>estado:</p>
+                    <p className={style.liid}>Id:</p>
+                    <p className={style.liname}>Nombre:</p>
+                    <p>Marca:</p>
+                    <p>Precio:</p>
+                    <p>Stock:</p>
+                    <p>Categoría:</p>
+                    <p>Rating:</p>
+                    <p>Estado:</p>
                 </div>
                 
                 {products.map((pro, index = 1) => {
@@ -43,4 +43,4 @@ const Get = () => {
     )
 }
 
-export default Get;
+export default GetProducts;

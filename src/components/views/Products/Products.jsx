@@ -1,6 +1,6 @@
 import style from "./Products.module.css";
-import Post from "../../common/PostProducts/Post";
-import Get from "../../common/GetProducts/Get";
+import PostProduct from "../../common/PostProduct/PostProduct";
+import GetProducts from "../../common/GetProducts/GetProducts";
 import PutPro from "../../common/PutProducts/PutPro";
 import DisaPro from "../../common/DisabledProducts/DisaPro";
 import { Link, useLocation } from "react-router-dom";
@@ -14,9 +14,8 @@ const Products = () => {
     const { products } = useSelector(state => state.products);
 
     useEffect(() => {
-        dispatch(getAllProducts())
-        
-      }, [products, dispatch])
+        dispatch(getAllProducts())      
+    }, [products, dispatch])
 
 
     return (
@@ -25,14 +24,14 @@ const Products = () => {
                 <button><Link to="get">Ver productos</Link></button>
                 <button><Link to="post">Crear productos</Link></button>
                 <button><Link to="put">Editar productos</Link></button>
-                <button><Link to="disa">des/habilitar productos</Link></button>
+                <button><Link to="disa">Des/habilitar productos</Link></button>
             </div>
 
             <div className={style.conttable}>
-                {pathname === "/products/post" && <Post />}
-                {pathname === "/products/get" && <Get />}
-                {pathname === "/products/disa" && <DisaPro />}
+                {pathname === "/products/get" && <GetProducts />}
+                {pathname === "/products/post" && <PostProduct />}
                 {pathname === "/products/put" && <PutPro />}
+                {pathname === "/products/disa" && <DisaPro />}
             </div>
 
         </div>

@@ -12,14 +12,13 @@ const SideBar = () => {
 
             <div className={style.namecont}>
 
-                <b className={style.name}> PAPAUPA</b>
+                <b className={style.name}>PAPAUPA</b>
                 <p>Admin</p>
             </div>
 
             <div className={style.rutscont}>
                 <ul className={style.rutsul}>
                     <li>
-
                         <NavLink className={style.btnNav} to={"/products"} >
                             <div className={style.divli}><i class="bi bi-archive-fill"></i> <p>Productos</p></div>
                             <i class="bi bi-caret-right-fill"></i>
@@ -28,7 +27,8 @@ const SideBar = () => {
 
                     <li>
 
-                        <NavLink className={style.btnNav} to={"/users"}> <div className={style.divli}><i class="bi bi-people-fill"></i> <p>Usuarios</p></div>
+                        <NavLink className={style.btnNav} to={"/users"}>
+                            <div className={style.divli}><i class="bi bi-people-fill"></i> <p>Usuarios</p></div>
                             <i class="bi bi-caret-right-fill"></i>
                         </NavLink>
 
