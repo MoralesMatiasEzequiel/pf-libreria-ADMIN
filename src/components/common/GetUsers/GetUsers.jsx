@@ -14,8 +14,8 @@ const GetUsers = () => {
 
             <ul className={style.list}>
                 <div className={style.titlelist}>
-                    <p className={style.liid}>Id:</p>
-                    <p className={style.liname}>Nombre:</p>
+                    <p>Id:</p>
+                    <p>Nombre:</p>
                     <p>E-mail:</p>
                     <p>Status:</p>
                 </div>

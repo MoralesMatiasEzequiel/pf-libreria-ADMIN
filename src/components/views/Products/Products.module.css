@@ -1,35 +1,33 @@
-:root {
-    --bgbtn: #00ffff;
-    --borderbtn: #000000;
-    --fontbtn: #000000;
-}
-
-.producontainer {
-    background-color: rgb(245, 245, 134);
+  .producontainer {
+    background-color: #ff9e5c;
+    position: fixed;
     margin: 0;
     top: 0;
     margin-left: 16rem;
     width: 80vw;
-    height: 99vh;
-}
-
-.contbtn {
-    height: 15vh;
+    height: 100vh;
+  }
+  
+  .contbtn {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding-top: 10px;
-}
-
-.contbtn button {
-    background-color: var(--bgbtn);
-    width: 150px;
-    border-radius: 35px;
-    border: 5px solid var(--borderbtn);
+  }
+  
+  .links {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 10px 10px;
+    margin: 15px 0px;
     cursor: pointer;
-    color: var(--fontbtn);
     font-weight: 900;
-}
-
-.conttable {
+  }
+  
+  .conttable {
     height: 75vh;
-}
+  }
+  

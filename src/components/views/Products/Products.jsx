@@ -21,12 +21,11 @@ const Products = () => {
     return (
         <div className={style.producontainer}>
             <div className={style.contbtn}>
-                <button><Link to="get">Ver productos</Link></button>
-                <button><Link to="post">Crear productos</Link></button>
-                <button><Link to="put">Editar productos</Link></button>
-                <button><Link to="disa">Des/habilitar productos</Link></button>
+                <Link to="get" className={style.links}>Ver productos</Link>
+                <Link to="post" className={style.links}>Crear productos</Link>
+                <Link to="put" className={style.links}>Editar productos</Link>
+                <Link to="disa" className={style.links}>Des/habilitar productos</Link>
             </div>
-
             <div className={style.conttable}>
                 {pathname === "/products/get" && <GetProducts />}
                 {pathname === "/products/post" && <PostProduct />}
