@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import style from "./Get.module.css";
+import Table from 'react-bootstrap/Table';
+
 
 const Get = () => {
 
@@ -8,32 +10,44 @@ const Get = () => {
     return (
         <div className={style.postcont}>
             <div className={style.filandor}>
-                <p>filtrar por : </p>
+                <p>{products.length} productos</p>
+               
                 <p>ordenar por :</p>
             </div>
 
-
-
             <ul className={style.list}>
-
-                <div className={style.titlelist}>
-                    <p className={style.liid}> id: </p>
-                    <p className={style.liname}>titulo:</p>
-                    <p>marca:</p>
-                    <p>precio:</p>
-                    <p>stock:</p>
-                    <p>sub-categ:</p>
-                    <p>rating:</p>
-                    <p>estado:</p>
-                </div>
                 
-                {products.map((pro, index = 1) => {
+                <li className={style.li}>
+
+                    <p className={style.liid}> Id: </p>
+                    <p className={style.liname}>Titulo:</p>
+                    <p className={style.limarc}>Marca:</p>
+                    <p className={style.liprec}>Precio:</p>
+                    <p className={style.listo}>Stock:</p>
+                    <p className={style.licat}>Sub-categ:</p>
+                    <p className={style.lirat}>Rating:</p>
+                    <p className={style.lista}>Estado:</p>
+                </li>
+
+                {products.map((pro, index) => {
+
                     return (
-                        <li key={index} className={style.li}>
-                            <p>{index + 1}</p>
-                            <p>{pro._id}</p>
+                        <li className={style.li}>
+
+                            {/* <p>{index + 1}</p> */}
+
+                            <p className={style.liid}>{pro._id}</p>
+
                             <p className={style.liname}> {pro.name}</p>
-                            <p>{pro.brand}</p>
+
+                            <p className={style.limarc}>{pro.brand}</p>
+
+                            <p className={style.liprec}>{pro.price}</p>
+                            <p className={style.listo}>{pro.stock}</p>
+                            <p className={style.licat}>{pro.subcategories[0]}</p>
+                            <p className={style.lirat}>{pro.rating}</p>
+                            <p className={style.lista}>{pro.active}</p>
+
                         </li>
                     )
                 })}
