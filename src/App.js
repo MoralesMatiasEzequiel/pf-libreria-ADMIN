@@ -3,10 +3,12 @@ import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import Products from './components/views/Products/Products';
 import SideBar from './components/views/Sidebar/Sidebar';
-import Post from './components/common/PostProducts/Post'
-import Get from './components/common/GetProducts/Get'
+import Post from './components/common/PostProduct/PostProduct'
+import GetProducts from './components/common/GetProducts/GetProducts'
 import DisaPro from './components/common/DisabledProducts/DisaPro';
 import PutPro from './components/common/PutProducts/PutPro';
+import Users from './components/views/Users/Users';
+import GetUsers from './components/common/GetUsers/GetUsers';
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -18,12 +20,16 @@ function App() {
     <div className="App">
       <SideBar />
       <Routes>
-
         <Route path='/products' element={<Products />}>
-          <Route path=':get' element={< Get />} />
-          <Route path=':post' element={< Post />} />
-          <Route path=':put' element={< PutPro />} />
-          <Route path=':disa' element={< DisaPro />} />
+          <Route path=':get' element={<GetProducts />} />
+          <Route path=':post' element={<Post />} />
+          <Route path=':put' element={<PutPro />} />
+          <Route path=':disa' element={<DisaPro />} />
+        </Route>
+      </Routes>
+      <Routes>
+        <Route path='/users' element={<Users />}>
+          <Route path=':get' element={<GetUsers />} />
         </Route>
       </Routes>
     </div>
