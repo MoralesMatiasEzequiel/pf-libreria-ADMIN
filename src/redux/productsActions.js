@@ -1,5 +1,5 @@
 import axios  from "axios";
-import { getAllProductsState, createProductState } from "./productsSlice";
+import { getAllProductsState, createProductState, modifiedProductState } from "./productsSlice";
 
 export const getAllProducts = () => {
     return async (dispatch) => {
@@ -8,6 +8,13 @@ export const getAllProducts = () => {
         dispatch(getAllProductsState(products));
     };
 };
+export const modifiedProduct = (product) => {
+    return async (dispatch) => {
+        
+        dispatch(modifiedProductState(product));
+    };
+};
+
 
 export const createProduct = (product) => {
 
