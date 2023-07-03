@@ -1,10 +1,18 @@
 import { useSelector } from "react-redux";
 import style from "./GetUsers.module.css";
+import { NavLink } from "react-router-dom";
+import { putUser } from "../../../redux/userActions";
+import { useDispatch } from "react-redux";
+import { putUserID } from "../../../redux/userActions";
 
 const GetUsers = () => {
 
     const { users } = useSelector(state => state.user);
+    // const dispatch = useDispatch();
 
+    // const handlePut = (id)=>{
+    //     dispatch(putUserID(id))
+    // }
     return (
         <div className={style.postcont}>
             <div className={style.filandor}>
@@ -28,6 +36,7 @@ const GetUsers = () => {
                             <p className={style.liname}> {user.name}</p>
                             {/* <p>{user.nickname}</p>
                             <p>{user.email}</p> */}
+                            {/* <NavLink to="users/put" onClick={handlePut(user._id)} >EDITAR</NavLink> */}
                         </li>
                     )
                 })}

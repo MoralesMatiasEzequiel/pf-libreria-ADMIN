@@ -1,19 +1,19 @@
 import style from "./Users.module.css";
-import GetUsers from "../../common/GetUsers/GetUsers";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllUser } from "../../../redux/userActions";
+import { useDispatch } from "react-redux";
+import GetUsers from "../../common/GetUsers/GetUsers";
+import PutUsers from "../../common/PutUser/PutUser";
+import { getAllUser, putUser } from "../../../redux/userActions";
 
 const Users = () => {
     let { pathname } = useLocation();
     const dispatch = useDispatch();
-    // const { currentUser } = useSelector(state => state.users);
 
-    // useEffect(() => {
-    //     dispatch(getAllUser())      
-    // }, [currentUser, dispatch])
-
+    useEffect(() => {
+        dispatch(getAllUser());  
+        // dispatch(putUser()); 
+    }, [])
 
     return (
         <div className={style.producontainer}>
@@ -24,10 +24,10 @@ const Users = () => {
 
             <div className={style.conttable}>
                 {pathname === "/users/get" && <GetUsers />}
+                {pathname === "/users/disa" && <PutUsers />}
             </div>
-
         </div>
     )
-}
+};
 
 export default Users;
