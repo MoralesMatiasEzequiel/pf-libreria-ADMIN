@@ -11,7 +11,7 @@ const SideBar = () => {
             <div className={style.img}></div>
 
             <div className={style.namecont}>
-                <p>Diego Velázquez</p>
+                <p>Nombre de admin</p>
                 <p>Administrador</p>
             </div>
 

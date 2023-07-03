@@ -31,7 +31,7 @@ const PostForm = () => {
                 subcategories: [],
             };
         }
-    }
+    };
 
     const [newProduct, setNewProduct] = useState(formProduct());
 

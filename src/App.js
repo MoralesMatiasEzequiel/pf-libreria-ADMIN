@@ -9,6 +9,9 @@ import DisaPro from './components/common/DisabledProducts/DisaPro';
 import PutPro from './components/common/PutProducts/PutPro';
 import Users from './components/views/Users/Users';
 import GetUsers from './components/common/GetUsers/GetUsers';
+import PutUsers from './components/common/PutUser/PutUser';
+import PutUserID from './components/common/PutUser/PutUserID';
+
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -30,7 +33,11 @@ function App() {
       <Routes>
         <Route path='/users' element={<Users />}>
           <Route path=':get' element={<GetUsers />} />
+          <Route path=':put' element={<PutUsers />} />
         </Route>
+      </Routes>
+      <Routes>
+        <Route path='/users/:id' element={<PutUserID />} />
       </Routes>
     </div>
   );
