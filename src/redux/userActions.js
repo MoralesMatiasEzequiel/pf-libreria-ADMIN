@@ -10,6 +10,13 @@ export const getAllUser = () => {
     };
 };
 
+export const putUser = (user) => {
+    return async (dispatch) => {
+        
+        dispatch(putUserState(user));
+    };
+};
+
 export const getUserByID = (_id) => {
     return async (dispatch) => {
 
@@ -25,6 +32,7 @@ export const getUserByID = (_id) => {
         }
     };
 };
+
 
 // export const putUserID = (id) => {
 //     return async (dispatch) => {

@@ -5,12 +5,18 @@ export const userSlice = createSlice({
     initialState: {
         users: [],
         userID:[],
+        userEdited: {},
         detail: {}
     },  
     reducers: {
         getUsersState: (state, action)=>{
             state.users = action.payload
         },
+        putUserState: (state, action) => {
+            state.userEdited = action.payload
+
+        },
+
         putUserState: (state, action) => {
             // console.log(action.payload);
             state.detail = state.users.find(user => user._id === action.payload._id);
