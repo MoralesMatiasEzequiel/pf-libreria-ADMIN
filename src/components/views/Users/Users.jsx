@@ -18,8 +18,8 @@ const Users = () => {
     return (
         <div className={style.producontainer}>
             <div className={style.contbtn}>
-                <button><Link to="get">Ver usuarios</Link></button>
-                <button><Link to="disa">Banear usuarios</Link></button>
+                <Link to="get" className={style.links}>Ver usuarios</Link>
+                <Link to="disa" className={style.links}>Banear usuarios</Link>
             </div>
 
             <div className={style.conttable}>

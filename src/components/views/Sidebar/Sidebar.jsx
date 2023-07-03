@@ -11,50 +11,50 @@ const SideBar = () => {
             <div className={style.img}></div>
 
             <div className={style.namecont}>
-
-                <b className={style.name}>PAPAUPA</b>
-                <p>Admin</p>
+                <p>Nombre de admin</p>
+                <p>Administrador</p>
             </div>
 
             <div className={style.rutscont}>
                 <ul className={style.rutsul}>
                     <li>
                         <NavLink className={style.btnNav} to={"/products"} >
-                            <div className={style.divli}><i class="bi bi-archive-fill"></i> <p>Productos</p></div>
+                            <div className={style.divli}>
+                            <i class="bi bi-archive-fill"></i> 
+                            <p>Productos</p>
                             <i class="bi bi-caret-right-fill"></i>
+                            </div>
                         </NavLink>
                     </li>
-
                     <li>
-
                         <NavLink className={style.btnNav} to={"/users"}>
-                            <div className={style.divli}><i class="bi bi-people-fill"></i> <p>Usuarios</p></div>
+                            <div className={style.divli}>
+                            <i class="bi bi-people-fill"></i>
+                            <p>Usuarios</p>
                             <i class="bi bi-caret-right-fill"></i>
+                            </div>
                         </NavLink>
-
                     </li>
-
                     <li >
                         <NavLink className={style.btnNav} to={"/orders"}>
-                            <div className={style.divli} ><i class="bi bi-table"></i> <p>Ordenes de compra</p></div>
+                            <div className={style.divli} >
+                            <i class="bi bi-table"></i>
+                            <p>Compras</p>
                             <i class="bi bi-caret-right-fill"></i>
+                            </div>
                         </NavLink>
-
                     </li>
-
                     <li>
                         <NavLink className={style.btnNav} to={"/metrics"}>
-                            <div className={style.divli}><i class="bi bi-speedometer2"></i> <p>Métricas</p></div>
+                            <div className={style.divli}>
+                            <i class="bi bi-speedometer2"></i> <p>Métricas</p>
                             <i class="bi bi-caret-right-fill"></i>
+                            </div>
                         </NavLink>
-
                     </li>
-
                 </ul>
                 <div className={style.homecont}>
-
                     <i class="bi bi-shop"></i>
-
                 </div>
             </div>
         </div>

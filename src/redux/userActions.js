@@ -10,17 +10,25 @@ export const getAllUser = () => {
     };
 };
 
-// export const putUser = (user) => {
-//     return async (dispatch) => {
-//         const dataApi = await axios.put("/user", user);
-//         const modifiedUser = dataApi.data;
-//         dispatch(putUserState(modifiedUser));
-//     };
-// };
-
-export const putUserID = (id) => {
+export const getUserByID = (_id) => {
     return async (dispatch) => {
-        
-        dispatch(putUserIDState(id));
+
+        try {
+            const { data } = await axios.get(`/user?_id=${_id}`);
+            // console.log(data);
+            dispatch(putUserState(data));
+
+        } catch (error) {
+            const data = false;
+            dispatch(putUserState(data));
+            console.log('no hay data');
+        }
     };
 };
+
+// export const putUserID = (id) => {
+//     return async (dispatch) => {
+        
+//         dispatch(putUserIDState(id));
+//     };
+// };

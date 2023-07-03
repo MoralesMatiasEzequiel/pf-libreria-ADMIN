@@ -4,7 +4,7 @@ const DisaPro = () => {
 
     return (
         <div className={style.producontainer}>
-            <h1>EL DIA BLOOOO</h1>
+            <h1>Deshabilitar/habilitar producto</h1>
 
         </div>
     )

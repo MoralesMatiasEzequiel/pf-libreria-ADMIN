@@ -1,85 +1,93 @@
 :root {
-    --bgsidebar: #FF9E5C;
-    --fontbtn: #000000;
+  --bgsidebar: #ff9e5c;
+  --fontbtn: #000000;
 }
 
 .container {
-    position: fixed;
-    width: 15rem;
-    height: 100%;
-    top: 0;
-    background-color:var(--bgsidebar) ;
-    color: var(--fontbtn);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  position: fixed;
+  width: 15rem;
+  height: 100%;
+  top: 0;
+  background-color: var(--bgsidebar);
+  color: var(--fontbtn);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
-    font-size: 25px;
-    font-weight: 700;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 15px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
 .img {
-    width: 150px;
-    height: 150px;
-    border-radius: 70px;
-    border: #000000 solid 2px;
-    background-color: rgba(3, 3, 3, 0.384);
-    background-image: url("./../../../assets/perfilBlanco.jpg");
-    background-size: cover;
-    background-position: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: rgba(3, 3, 3, 0.384);
+  background-image: url("./../../../assets/perfilBlanco.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.namecont {
+  font-weight: bold;
 }
 
 .namecont p {
-
-    margin: 0 0 0 10px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 2px;
 }
 
 .rutscont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .rutsul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
+  list-style: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0px 15px;
 }
 
 .rutsul li {
-    margin: 0 0 0 10%;
-    font-size: 20px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3.2em;
-
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.btnNav{
-    text-decoration: none;
-    color: var(--fontbtn);
-    display: flex;
-    align-items: center;
+
+.btnNav {
+  text-decoration: none;
+  color: var(--fontbtn);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .divli {
+    color:white;
     display: flex;
     align-items: center;
-    gap: .5em;
-}
-
-.rutsul li:nth-child(3) {
-    margin: 0 0 0 15%;
-    gap: 0;
-
-}
+    width: 100%;
+    justify-content: space-between;
+    gap: 5px;
+  }
 
 .homecont {
-
-    font-size: 40px;
+  font-size: 35px;
+  color: white;
+  margin-top: 5px;
 }

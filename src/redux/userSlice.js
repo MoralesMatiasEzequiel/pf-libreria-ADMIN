@@ -4,18 +4,20 @@ export const userSlice = createSlice({
     name: "user",
     initialState: {
         users: [],
-        userOfPut:[]
+        userID:[],
+        detail: {}
     },
     reducers: {
         getUsersState: (state, action)=>{
             state.users = action.payload
         },
         putUserState: (state, action) => {
-            state.users = [...state.users, action.payload]
+            state.detail = state.userID.filter(pro => pro.id === action.payload)
+            // state.userID = []
         },
-        putUserIDState: (state, action) => {
-            state.userOfPut = action.payload
-        }
+        // putUserIDState: (state, action) => {
+        //     state.userID = action.payload
+        // }
     }
 });
 

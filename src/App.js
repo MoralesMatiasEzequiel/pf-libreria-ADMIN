@@ -10,6 +10,7 @@ import PutPro from './components/common/PutProducts/PutPro';
 import Users from './components/views/Users/Users';
 import GetUsers from './components/common/GetUsers/GetUsers';
 import PutUsers from './components/common/PutUser/PutUser';
+import PutUserID from './components/common/PutUser/PutUserID';
 
 
 axios.defaults.baseURL = "http://localhost:3001";
@@ -34,6 +35,9 @@ function App() {
           <Route path=':get' element={<GetUsers />} />
           <Route path=':put' element={<PutUsers />} />
         </Route>
+      </Routes>
+      <Routes>
+        <Route path='/users/:id' element={<PutUserID />} />
       </Routes>
     </div>
   );

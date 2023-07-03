@@ -3,7 +3,7 @@ const PutPro = () => {
 
     return (
         <div >
-            <h1>virgo Lini</h1>
+            <h1>Editar productos</h1>
 
         </div>
     )
