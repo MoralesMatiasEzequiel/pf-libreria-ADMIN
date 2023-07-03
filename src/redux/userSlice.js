@@ -6,13 +6,16 @@ export const userSlice = createSlice({
         users: [],
         userID:[],
         detail: {}
-    },
+    },  
     reducers: {
         getUsersState: (state, action)=>{
             state.users = action.payload
         },
         putUserState: (state, action) => {
-            state.detail = state.userID.filter(pro => pro.id === action.payload)
+            // console.log(action.payload);
+            state.detail = state.users.find(user => user._id === action.payload._id);
+            // state.userID = [state.detail];
+            // console.log(state.userID);
             // state.userID = []
         },
         // putUserIDState: (state, action) => {
