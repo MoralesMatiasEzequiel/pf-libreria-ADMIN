@@ -1,5 +1,5 @@
 import axios  from "axios";
-import { getAllProductsState, createProductState, modifiedProductState } from "./productsSlice";
+import { getAllProductsState, createProductState, modifiedProductState, editProductState } from "./productsSlice";
 
 export const getAllProducts = () => {
     return async (dispatch) => {
@@ -15,6 +15,19 @@ export const modifiedProduct = (product) => {
     };
 };
 
+
+export const editProduct = (product) => {
+    return async (dispatch) => {
+        
+        try {
+            const dataApi = await axios.put("/product", product);
+
+              
+        } catch (error) {
+            
+        }
+    };
+};
 
 export const createProduct = (product) => {
 
