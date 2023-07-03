@@ -1,0 +1,13 @@
+.producontainer {
+    background-color: #ff9e5c;
+    position: fixed;
+    margin: 0;
+    top: 0;
+    margin-left: 16rem;
+    width: 80vw;
+    height: 100vh;
+}
+
+.conttable {
+    height: 75vh;
+}

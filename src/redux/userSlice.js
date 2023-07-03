@@ -24,12 +24,12 @@ export const userSlice = createSlice({
             // console.log(state.userID);
             // state.userID = []
         },
-        // putUserIDState: (state, action) => {
-        //     state.userID = action.payload
-        // }
+        getUserIDState: (state, action) => {
+            state.detail = action.payload;
+        },
     }
 });
 
-export const { getUsersState, putUserState ,putUserIDState } = userSlice.actions;
+export const { getUsersState, putUserState, userDetailID, getUserIDState } = userSlice.actions;
 
 export default userSlice.reducer;

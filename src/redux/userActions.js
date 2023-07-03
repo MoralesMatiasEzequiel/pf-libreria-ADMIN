@@ -1,5 +1,5 @@
 import axios  from "axios";
-import { getUsersState, putUserState, putUserIDState } from "./userSlice";
+import { getUsersState, putUserState, userDetailID, getUserIDState } from "./userSlice";
 
 export const getAllUser = () => {
     return async (dispatch) => {
@@ -23,20 +23,19 @@ export const getUserByID = (_id) => {
         try {
             const { data } = await axios.get(`/user?_id=${_id}`);
             // console.log(data);
-            dispatch(putUserState(data));
+            dispatch(userDetailID(data));
 
         } catch (error) {
             const data = false;
-            dispatch(putUserState(data));
+            dispatch(userDetailID(data));
             console.log('no hay data');
         }
     };
 };
 
+export const getUserID = (user) => {
+    return async (dispatch) => {
+        dispatch(getUserIDState(user));
+    };
+};
 
-// export const putUserID = (id) => {
-//     return async (dispatch) => {
-        
-//         dispatch(putUserIDState(id));
-//     };
-// };

@@ -1,18 +1,24 @@
 import { useSelector } from "react-redux";
 import style from "./GetUsers.module.css";
-import { NavLink } from "react-router-dom";
-import { putUser } from "../../../redux/userActions";
 import { useDispatch } from "react-redux";
-import { putUserID } from "../../../redux/userActions";
+import { getUserID } from "../../../redux/userActions";
+import { Link } from "react-router-dom";
+
+
 
 const GetUsers = () => {
 
     const { users } = useSelector(state => state.user);
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     // const handlePut = (id)=>{
     //     dispatch(putUserID(id))
     // }
+
+    const handlerDetailUser = (user) => {
+        dispatch(getUserID(user))
+    }
+
     return (
         <div className={style.postcont}>
             <div className={style.filandor}>
@@ -32,8 +38,12 @@ const GetUsers = () => {
                 {users.map((user, index = 1) => {
                     return (
                         <li key={index} className={style.li}>
-                            <p>{index + 1}</p>
-                            <br />
+                            <p>{index + 1}</p>       
+                            <Link to={'detail'}>
+                                <button onClick={() => handlerDetailUser(user)}>
+                                    <i class="bi bi-eye-fill"></i>
+                                </button>
+                            </Link>
                             <p>{user._id}</p>
                             <br />
                             <p className={style.liname}> {user.name}</p>
