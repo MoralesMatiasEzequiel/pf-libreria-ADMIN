@@ -115,7 +115,6 @@ const PostForm = () => {
                 </NavLink>
 
             </div> */}
-            <h1 className={style.title}>Subir producto</h1>
 
             <form action="" className={style.form} onSubmit={handleSubmit}>
                 <div className={style.contfor1y2}>
@@ -165,6 +164,7 @@ const PostForm = () => {
                         />
                         {errors.salePrice && <p className="error">{errors.salePrice}</p>}
                     </div>
+
                     <div className={style.formdos}>
                         <label htmlFor="description">Descripcion</label>
                         <input
@@ -178,8 +178,8 @@ const PostForm = () => {
                         {errors.description && <p className="error">{errors.description}</p>}
 
                         {/* ------------- image ---------------- */}
-                        <FormGroup>
-                            <label htmlFor="image">Subir Imagen</label>
+                        <FormGroup className={style.subirImg}>
+                            <label htmlFor="image">Subir Imagen</label><br />
                             <Input type="file" name="image" placeholder="Subir imagen" onChange={uploadImage} />
                             {
                                 loading ? (<p>Cargando imagen...</p>) : (<img src={image} style={{ width: "150px" }} />)
@@ -198,8 +198,7 @@ const PostForm = () => {
                         {errors.subcategories && <p className="error">{errors.subcategories}</p>}
                     </div>
                 </div>
-
-                <button disabled={!newProduct.brand || !newProduct.description || !newProduct.name || !newProduct.image || errors.name || errors.brand || errors.image || errors.description || errors.stock || errors.price}>Crear producto</button>
+                <button className={style.createBtn} disabled={!newProduct.brand || !newProduct.description || !newProduct.name || !newProduct.image || errors.name || errors.brand || errors.image || errors.description || errors.stock || errors.price}>Crear producto</button>
             </form>
         </div>
     )
