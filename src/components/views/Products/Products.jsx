@@ -7,6 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts, modifiedProduct, clearProductsOfSee } from "../../../redux/productsActions";
+import { getSubcategories } from "../../../redux/subcategoriesActions";
 
 const Products = () => {
     let { pathname } = useLocation();
@@ -19,7 +20,7 @@ const Products = () => {
 
     useEffect(() => {
         dispatch(getAllProducts())
-
+        dispatch(getSubcategories())
     }, [])
 
 
