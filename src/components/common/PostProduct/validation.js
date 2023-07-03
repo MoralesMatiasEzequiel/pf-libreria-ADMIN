@@ -22,8 +22,8 @@ const validation = (newProduct) => {
         errors.subcategories = 'Indicates to which subcategories it belongs'
     }
     // ------------------------------nombre
-    if (newProduct.name.length > 18) {
-        errors.name = 'Put a name less than 18 characters'
+    if (newProduct.name.length > 28) {
+        errors.name = 'Put a name less than 28 characters'
     }
     
     // -------------------------------stock
@@ -40,9 +40,9 @@ const validation = (newProduct) => {
     }
    
     // -------------------------------subcategorias
-    if (newProduct.subcategories.length < 22) {
-        errors.subcategories = 'Your product must belong to a category'
-    }
+    // if (newProduct.subcategories.length < 10) {
+    //     errors.subcategories = 'Your product must belong to a category'
+    // }
 
     return errors;
 }

@@ -39,11 +39,11 @@ border-radius: 4px; /* Radio de borde de la barra de desplazamiento */
 }
 
 .list::-webkit-scrollbar-thumb:hover {
-background-color: #aaa; /* Color del relleno de la barra de desplazamiento en estado hover */
+background-color: #383838; /* Color del relleno de la barra de desplazamiento en estado hover */
 }
 
 .list::-webkit-scrollbar-thumb:active {
-background-color: #999; /* Color del relleno de la barra de desplazamiento en estado activo */
+background-color: #363636; /* Color del relleno de la barra de desplazamiento en estado activo */
 }
 
 .list::-webkit-scrollbar-corner {

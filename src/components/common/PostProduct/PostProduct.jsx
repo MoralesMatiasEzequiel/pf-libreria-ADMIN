@@ -1,11 +1,9 @@
 import style from "./PostProduct.module.css";
 import React from "react";
-// import Navuno from "../../common/Nav/Nav";
 import validation from "./validation";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createProduct } from "../../../redux/productsActions";
-// import { NavLink } from "react-router-dom"
 import { FormGroup, Input } from "reactstrap"
 
 
@@ -81,6 +79,9 @@ const PostForm = () => {
         localStorage.setItem("FormAddProduct", JSON.stringify(newProduct))
     }, [newProduct]);
 
+    
+    
+    
     //--------------------------------- CLOUDINARY --------------------------
     const [image, setImage] = useState("")
     const [loading, setLoading] = useState(false)
@@ -97,7 +98,6 @@ const PostForm = () => {
         })
         const file = await response.json();
         setImage(file.secure_url);
-        console.log(file.secure_url);
         setLoading(false);
 
         setNewProduct({

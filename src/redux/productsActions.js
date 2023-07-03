@@ -1,5 +1,5 @@
 import axios  from "axios";
-import { getAllProductsState, createProductState, modifiedProductState, editProductState } from "./productsSlice";
+import { getAllProductsState, createProductState, modifiedProductState, editProductState, findsByNameState ,clearProductsOfSeeState } from "./productsSlice";
 
 export const getAllProducts = () => {
     return async (dispatch) => {
@@ -21,13 +21,31 @@ export const editProduct = (product) => {
         
         try {
             const dataApi = await axios.put("/product", product);
-
+            dispatch(editProductState(product))
               
         } catch (error) {
-            
+            alert(error)
         }
     };
 };
+export const findsByName = (name) => {
+    return async (dispatch) => {
+        
+        try {
+            const { data } = await axios.get(`/product?name=${name}`);
+            dispatch(findsByNameState(data));
+        } catch (error) {
+            alert(error)
+        }
+    };
+};
+export const clearProductsOfSee = (name) => {
+    return async (dispatch) => {
+        
+    dispatch(clearProductsOfSeeState())
+    };
+};
+
 
 export const createProduct = (product) => {
 
