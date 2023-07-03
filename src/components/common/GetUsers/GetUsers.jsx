@@ -20,13 +20,13 @@ const GetUsers = () => {
                 <p>Ordenar por: </p>
             </div>
             <ul>
-            <div className={style.titlelist}>
-                <p>ID:</p>
-                <p>Nombre:</p>
-                <p>Nickname:</p>
-                <p>E-mail:</p>
-                <p>Status:</p>
-            </div>
+              <div className={style.titlelist}>
+                  <p>ID:</p>
+                  <p>Nombre:</p>
+                  <p>Nickname:</p>
+                  <p>E-mail:</p>
+                  <p>Status:</p>
+              </div>
             </ul>
             <ul className={style.list}>            
                 {users.map((user, index = 1) => {
