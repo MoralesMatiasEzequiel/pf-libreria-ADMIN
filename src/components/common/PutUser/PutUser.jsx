@@ -6,6 +6,10 @@ import { getUserByID } from "../../../redux/userActions";
 
 const PutUsers = () => {
 
+    const { userEdited } = useSelector(state => state.user);
+
+    const [userEdit, setUserEdit] = useState(userEdited);
+
     // const { users } = useSelector(state => state.user);
     const [ editUser, setEditUser ] = useState("");
     const dispatch = useDispatch();
@@ -22,6 +26,14 @@ const PutUsers = () => {
     const handleChange = (event) => {
         setEditUser(event.target.value);
     };
+
+    const handleChangeB = (event) => {
+        const { name, value } = event.target;
+        setUserEdit((editUser) => ({
+            ...editUser,
+        }));
+    };
+    
 
     const handleKeyPress = (event) => {
         if (event.key === "Enter") {
@@ -48,6 +60,7 @@ const PutUsers = () => {
     return (
         <div className={style.postcont}>
             <div>
+                <h1>Editar usuario</h1>
                 <label htmlFor="id">Ingrese el ID del usuario: </label>
                 <input
                     name="id"
