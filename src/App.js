@@ -23,15 +23,19 @@ function App() {
     <div className="App">
       <SideBar />
       <Routes>
-        <Route path='/products' element={<Products />} />
-        <Route path='/products/get' element={<GetProducts />} />
-        <Route path='/products/post' element={<Post />} />
-        <Route path='/products/put' element={<PutPro />} />
-        <Route path='/products/disa' element={<DisaPro />} />
-        <Route path='/users' element={<Users />} />
-        <Route path='/users/get' element={<GetUsers />} />
-        <Route path='/users/put' element={<PutUsers />} />
-        <Route path='/users/:id' element={<PutUserID />} />
+        <Route path='/products' element={<Products />}>
+          <Route path=':get' element={<GetProducts />} />
+          <Route path=':post' element={<Post />} />
+          <Route path=':put' element={<PutPro />} />
+          <Route path=':disa' element={<DisaPro />} />
+        </Route>
+
+        <Route path='/users' element={<Users />}>
+          <Route path=':get' element={<GetUsers />} />
+          <Route path=':put' element={<PutUsers />} />
+          <Route path=':id' element={<PutUserID />} />
+        </Route>
+
       </Routes>
     </div>
   );

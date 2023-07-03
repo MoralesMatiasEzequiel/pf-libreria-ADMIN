@@ -19,12 +19,12 @@ const Users = () => {
         <div className={style.producontainer}>
             <div className={style.contbtn}>
                 <Link to="get" className={style.links}>Ver usuarios</Link>
-                <Link to="disa" className={style.links}>Banear usuarios</Link>
+                <Link to="put" className={style.links}>Banear usuarios</Link>
             </div>
 
             <div className={style.conttable}>
                 {pathname === "/users/get" && <GetUsers />}
-                {pathname === "/users/disa" && <PutUsers />}
+                {pathname === "/users/put" && <PutUsers />}
             </div>
         </div>
     )

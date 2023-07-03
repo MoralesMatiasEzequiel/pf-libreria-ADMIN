@@ -1,20 +1,26 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import style from "./GetProducts.module.css";
 
+import { modifiedProduct } from "../../../redux/productsActions";
+import { Link } from "react-router-dom";
 const GetProducts = () => {
 
+    const dispatch = useDispatch();
     const { products } = useSelector(state => state.products);
 
+    const handlePut = (product) => {
+        dispatch(modifiedProduct(product))
+    }
     return (
         <div className={style.postcont}>
             <div className={style.filandor}>
                 <p>{products.length} productos</p>
-               
+
                 <p>ordenar por :</p>
             </div>
 
             <ul className={style.list}>
-                
+
                 <li className={style.li}>
 
                     <p className={style.liid}> Id: </p>
@@ -32,7 +38,9 @@ const GetProducts = () => {
                     return (
                         <li className={style.li}>
 
-                            {/* <p>{index + 1}</p> */}
+                            <Link onClick={() => handlePut(pro)} to="put" >
+                                <i class="bi bi-pencil-square"> </i>
+                            </Link>
 
                             <p className={style.liid}>{pro._id}</p>
 
