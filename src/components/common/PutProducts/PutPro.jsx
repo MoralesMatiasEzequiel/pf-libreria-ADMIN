@@ -2,13 +2,15 @@ import style from "../PostProduct/PostProduct.module.css";
 
 import validation from "../PostProduct/validation";
 
-import { FormGroup, Input } from "reactstrap"
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { modifiedProduct, editProduct } from "../../../redux/productsActions";
+// import { FormGroup, Input } from "reactstrap"
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const PutPro = () => {
 
+    const dispatch = useDispatch();
 
     const { productOfEdit } = useSelector(state => state.products);
 
@@ -17,24 +19,12 @@ const PutPro = () => {
 
 
     const handleSubmit = async (event) => {
-        // event.preventDefault();
+        event.preventDefault();
 
-        // dispatch(createProduct(prodOfEdit));
+        dispatch(editProduct(prodOfEdit));
+        dispatch(modifiedProduct({}))
 
-        // setprodOfEdit({
-        //     name: "",
-        //     brand: "",
-        //     stock: 0,
-        //     price: 0,
-        //     salePrice: 0,
-        //     description: "",
-        //     image: "",
-        //     rating: 1,
-        //     subcategories: [],
-        // });
-        // setImage("")
 
-        // localStorage.removeItem("FormAddProduct")
     };
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -49,10 +39,12 @@ const PutPro = () => {
             })
         );
     };
-    
+
+    useEffect(() => {
+
+    }, [productOfEdit])
     return (
         <div >
-            <h1>Editar productos</h1>
             <form action="" className={style.form} onSubmit={handleSubmit}>
                 <div className={style.contfor1y2}>
                     <div className={style.formuno}>
@@ -130,7 +122,7 @@ const PutPro = () => {
                             name="subcategories"
                             value={prodOfEdit.subcategories}
                             type="text"
-                           
+
                         />
                         {errors.subcategories && <p className="error">{errors.subcategories}</p>}
                     </div>
