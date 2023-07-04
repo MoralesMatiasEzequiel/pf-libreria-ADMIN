@@ -2,9 +2,9 @@ import style from "./PostProduct.module.css";
 import React from "react";
 import validation from "./validation";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createProduct } from "../../../redux/productsActions";
-import { FormGroup, Input } from "reactstrap"
+import { FormGroup, Input } from "reactstrap";
 
 
 const PostForm = () => {
@@ -12,6 +12,8 @@ const PostForm = () => {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState({});
     
+    const { subcategories } = useSelector(state => state.subcategories);
+
     const formProduct = () => {
         let datos = localStorage.getItem("FormAddProduct");
         if (datos) {
@@ -49,14 +51,14 @@ const PostForm = () => {
 
     const handleSubcaty = (event) => {
         setNewProduct({
-            ...newProduct,
-            subcategories: [event.target.value],
+          ...newProduct,
+          subcategories: [event.target.value],
         });
-    };
+
+      };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         dispatch(createProduct(newProduct));
 
         setNewProduct({
@@ -188,13 +190,14 @@ const PostForm = () => {
                         {errors.image && <p className="error">{errors.image}</p>}
                         {/* ------------- image ---------------- */}
 
-                        <label htmlFor="subcategories">ID de la Subcategoria</label>
-                        <input
-                            name="subcategories"
-                            value={newProduct.subcategories}
-                            type="text"
-                            onChange={handleSubcaty}
-                        />
+                        <label htmlFor="subcategories">Subcategoría</label>
+                        <Input type="select" name="subcategories" value={newProduct.subcategories} onChange={handleSubcaty}>
+                        {subcategories.map((subcategory) => (
+                            <option key={subcategory._id} value={subcategory._id}>
+                            {subcategory.name}
+                            </option>
+                        ))}
+                        </Input>
                         {errors.subcategories && <p className="error">{errors.subcategories}</p>}
                     </div>
                 </div>

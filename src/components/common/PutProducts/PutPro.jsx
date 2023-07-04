@@ -15,6 +15,7 @@ const PutPro = () => {
     const dispatch = useDispatch();
 
     const { productOfEdit, productsOfSee } = useSelector(state => state.products);
+    const { subcategories } = useSelector(state => state.subcategories);
 
     const [prodOfEdit, setProdOfEdit] = useState({});
     const [errors, setErrors] = useState({});
@@ -228,13 +229,18 @@ const PutPro = () => {
                         {errors.image && <p className="error">{errors.image}</p>}
                         {/* ------------- image ----------------  */}
 
-                        <label htmlFor="subcategories">ID de la Subcategoria</label>
-                        <input
-                            name="subcategories"
-                            value={prodOfEdit.subcategories}
-                            type="text"
-                            onChange={handleSubcaty}
-                        />
+                        <label htmlFor="subcategories">Subcategoría</label>
+                        <Input
+                        type="select"
+                        name="subcategories"
+                        value={prodOfEdit.subcategories}
+                        onChange={handleSubcaty}
+                        >
+                        <option value="">Seleccione una subcategoría</option>
+                        {subcategories.map((subcategory) => (
+                            <option value={subcategory._id}>{subcategory.name}</option>
+                        ))}
+                        </Input>
                         {errors.subcategories && <p className="error">{errors.subcategories}</p>}
                     </div>
                 </div>
