@@ -39,11 +39,6 @@ const GetUsers = () => {
                     return (
                         <li key={index} className={style.li}>
                             <p>{index + 1}</p>       
-                            <Link to={'detail'}>
-                                <button onClick={() => handlerDetailUser(user)}>
-                                    <i class="bi bi-eye-fill"></i>
-                                </button>
-                            </Link>
                             <p>{user._id}</p>
                             <br />
                             <p className={style.liname}> {user.name}</p>
@@ -54,6 +49,11 @@ const GetUsers = () => {
                             <br />
                             <p>{user.active === true ? "Activo" : "Inactivo"}</p>
                             {/* <NavLink to="users/put" onClick={handlePut(user._id)} >EDITAR</NavLink> */}
+                            <Link to={'detail'}>
+                                <button onClick={() => handlerDetailUser(user)}>
+                                    <i class="bi bi-eye-fill"></i>
+                                </button>
+                            </Link>
                         </li>                       
                     )
                 })}

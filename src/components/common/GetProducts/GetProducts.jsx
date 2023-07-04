@@ -11,6 +11,8 @@ const GetProducts = () => {
     const handlePut = (product) => {
         dispatch(modifiedProduct(product))
     }
+
+    
     return (
         <div className={style.postcont}>
             <div className={style.filandor}>
