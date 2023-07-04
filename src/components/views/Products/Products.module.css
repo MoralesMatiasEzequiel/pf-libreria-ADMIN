@@ -1,5 +1,5 @@
   .producontainer {
-    background-color: #ff9e5c;
+    background-color: white;
     position: fixed;
     margin: 0;
     top: 0;
@@ -17,10 +17,10 @@
   
   .links {
     text-decoration: none;
-    color: white;
+    color: #ff9e5c;
     background-color: transparent;
     border-radius: 5px;
-    border: 1px solid white;
+    border: 1px solid #ff9e5c;
     padding: 10px 10px;
     margin: 15px 0px;
     cursor: pointer;

@@ -1,5 +1,5 @@
 :root {
-  --bgsidebar: #ff9e5c;
+  --bgsidebar: white;
   --fontbtn: #000000;
 }
 
@@ -18,30 +18,32 @@
 .title {
   font-size: 25px;
   font-weight: 700;
-  margin: 15px;
-  color: white;
+  margin: auto 15px;
+  color: #ff9e5c;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #ff9e5c;
 }
 
 .img {
   width: 150px;
   height: 150px;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #ff9e5c;
   background-color: rgba(3, 3, 3, 0.384);
   background-image: url("./../../../assets/perfilBlanco.jpg");
   background-size: cover;
   background-position: center;
+  margin-bottom: auto;
 }
 
 .namecont {
   font-weight: bold;
+  margin-bottom: auto;
 }
 
 .namecont p {
-  color: white;
-  border: 1px solid white;
+  color: #ff9e5c;
+  border: 1px solid #ff9e5c;
   border-radius: 5px;
   padding: 2px;
 }
@@ -53,11 +55,12 @@
 
 .rutsul {
   list-style: none;
-  color: white;
-  border: 1px solid white;
+  color: #ff9e5c;
+  border: 1px solid #ff9e5c;
   border-radius: 5px;
-  margin: 0;
+  margin: auto;
   padding: 0px 15px;
+  padding-top: 15px;
 }
 
 .rutsul li {
@@ -78,9 +81,8 @@
 }
 
 .divli {
-    color:white;
+    color:#ff9e5c;
     display: flex;
-    align-items: center;
     width: 100%;
     justify-content: space-between;
     gap: 5px;
@@ -88,11 +90,12 @@
 
 .homecont {
   font-size: 35px;
-  color: white;
+  color: #ff9e5c;
   margin-top: 5px;
 }
 
 .shop {
   text-decoration: none;
-  color: #fff;
+  color: #ff9e5c;
+  margin: auto;
 }
