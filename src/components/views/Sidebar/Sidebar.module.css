@@ -1,0 +1,98 @@
+:root {
+  --bgsidebar: #ff9e5c;
+  --fontbtn: #000000;
+}
+
+.container {
+  position: fixed;
+  width: 15rem;
+  height: 100%;
+  top: 0;
+  background-color: var(--bgsidebar);
+  color: var(--fontbtn);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 15px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: rgba(3, 3, 3, 0.384);
+  background-image: url("./../../../assets/perfilBlanco.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.namecont {
+  font-weight: bold;
+}
+
+.namecont p {
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.rutscont {
+  display: flex;
+  flex-direction: column;
+}
+
+.rutsul {
+  list-style: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0px 15px;
+}
+
+.rutsul li {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnNav {
+  text-decoration: none;
+  color: var(--fontbtn);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.divli {
+    color:white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+.homecont {
+  font-size: 35px;
+  color: white;
+  margin-top: 5px;
+}
+
+.shop {
+  text-decoration: none;
+  color: #fff;
+}

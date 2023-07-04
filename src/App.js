@@ -1,25 +1,70 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from "axios";
+import { Routes, Route } from "react-router-dom";
+import Products from './components/views/Products/Products';
+import SideBar from './components/views/Sidebar/Sidebar';
+import Post from './components/common/PostProduct/PostProduct'
+import GetProducts from './components/common/GetProducts/GetProducts'
+import DisaPro from './components/common/DisabledProducts/DisaPro';
+import PutPro from './components/common/PutProducts/PutPro';
+import Users from './components/views/Users/Users';
+import GetUsers from './components/common/GetUsers/GetUsers';
+import PutUsers from './components/common/PutUser/PutUser';
+import DetailUser from './components/views/DetailUser/DetailUser';
+import Orders from './components/views/Orders/Orders';
+
+
+axios.defaults.baseURL = "http://localhost:3001";
 
 function App() {
+
+  // const location = useLocation();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SideBar />
+      <Routes>
+        <Route path='/products' element={<Products />}>
+          <Route path=':get' element={<GetProducts />} />
+          <Route path=':post' element={<Post />} />
+          <Route path=':put' element={<PutPro />} />
+          <Route path=':disa' element={<DisaPro />} />
+        </Route>
+
+        <Route path='/users' element={<Users />}>
+          <Route path=':get' element={<GetUsers />} />
+          <Route path=':put' element={<PutUsers />} />
+          <Route path=':detail' element={<DetailUser />} />
+        </Route>
+        <Route path='/orders' element={<Orders />}/>
+      </Routes>
     </div>
   );
 }
 
 export default App;
+
+/*
+return (
+    <div className="App">
+      <SideBar />
+      <Routes>
+        <Route path='/products' element={<Products />}>
+          <Route path=':get' element={<GetProducts />} />
+          <Route path=':post' element={<Post />} />
+          <Route path=':put' element={<PutPro />} />
+          <Route path=':disa' element={<DisaPro />} />
+        </Route>
+      </Routes>
+      <Routes>
+        <Route path='/users' element={<Users />}>
+          <Route path=':get' element={<GetUsers />} />
+          <Route path=':put' element={<PutUsers />} />
+        </Route>
+      </Routes>
+      <Routes>
+        <Route path='/users/:id' element={<PutUserID />} />
+      </Routes>
+    </div>
+  );
+*/

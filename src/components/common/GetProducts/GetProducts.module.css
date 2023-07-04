@@ -1,0 +1,158 @@
+.postcont {
+    background-color: rgba(3, 3, 3, 0.384);
+    margin: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.filandor {
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+}
+.filandor p {
+    margin-right: auto;
+    padding-left: 10px;
+}
+
+.list {
+    list-style: none;
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    overflow: auto;
+    padding: 0;
+    border-radius: 5px;
+}
+.list::-webkit-scrollbar {
+    height: 8px; /* Ancho de la barra de desplazamiento */
+  }
+
+.list::-webkit-scrollbar-track {
+background-color: transparent; /* Color del fondo de la barra de desplazamiento */
+}
+
+.list::-webkit-scrollbar-thumb {
+background-color: #4b4b4b; /* Color del relleno de la barra de desplazamiento */
+border-radius: 4px; /* Radio de borde de la barra de desplazamiento */
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+background-color: #383838; /* Color del relleno de la barra de desplazamiento en estado hover */
+}
+
+.list::-webkit-scrollbar-thumb:active {
+background-color: #363636; /* Color del relleno de la barra de desplazamiento en estado activo */
+}
+
+.list::-webkit-scrollbar-corner {
+background-color: transparent; /* Color de la esquina de la barra de desplazamiento */
+}
+
+.li{
+    display: flex;
+    border: #6b6b6b solid 1px;
+    width: 88vw;
+}
+
+/* id */
+.liid {
+    min-width: 250px;
+max-width: 250px;
+    justify-content: center;
+    border-right: 2px solid #000000;
+    display: flex;
+    height: 40px;
+    width: 80vw;
+    padding-left: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+/* titulo */
+.liname {
+  
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    border-right: 2px solid #000000;
+    text-align: center;
+    padding: 0 5px;
+    
+    align-items: center;
+}
+
+/* marca */
+.limarc {
+    
+    min-width: 120px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-right: 2px solid #000000;
+    
+    align-items: center;
+}
+
+/* precio */
+.liprec {
+    
+    min-width: 120px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-right: 2px solid #000000;
+    
+    align-items: center;
+}
+
+
+/* stock*/
+.listo {
+    
+    min-width: 70px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-right: 2px solid #000000;
+
+    align-items: center;
+}
+
+/* subcategory*/
+.licat {
+   
+    min-width: 200px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid #000000;
+}
+
+
+/* rating*/
+.lirat {
+   
+    min-width: 90px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-right: 2px solid #000000;
+    
+    align-items: center;
+}
+
+
+/* stado*/
+.lista {
+   
+    min-width: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-right: 2px solid #000000;
+    
+    align-items: center;
+}

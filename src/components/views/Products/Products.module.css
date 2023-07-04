@@ -1,0 +1,33 @@
+  .producontainer {
+    background-color: #ff9e5c;
+    position: fixed;
+    margin: 0;
+    top: 0;
+    margin-left: 16rem;
+    width: 80vw;
+    height: 100vh;
+  }
+  
+  .contbtn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+  }
+  
+  .links {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 10px 10px;
+    margin: 15px 0px;
+    cursor: pointer;
+    font-weight: 900;
+  }
+  
+  .conttable {
+    height: 75vh;
+  }
+  
