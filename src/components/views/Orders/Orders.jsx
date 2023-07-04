@@ -30,7 +30,6 @@ const Orders = () => {
       </div>
       {orders.map((order, index) => {
         const productNames = getProductNames(order.products);
-        console.log(productNames);
         return (
           <div key={index}>
             <p>Estado de la compra: {order.state}</p>
