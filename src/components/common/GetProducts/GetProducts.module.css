@@ -1,14 +1,15 @@
 .postcont {
-    background-color: rgba(3, 3, 3, 0.384);
+    background-color: #ff9e5c;
     margin: 15px;
     padding: 10px;
     border-radius: 5px;
 }
 
 .filandor {
+    color: white;
     display: flex;
-    background-color: white;
     border-radius: 5px;
+    padding-top: 15px;
 }
 .filandor p {
     margin-right: auto;
@@ -17,7 +18,7 @@
 
 .list {
     list-style: none;
-    background-color: #eeeeee;
+    background-color: white;
     display: flex;
     flex-direction: column;
     height: 60vh;
@@ -27,6 +28,7 @@
 }
 .list::-webkit-scrollbar {
     height: 8px; /* Ancho de la barra de desplazamiento */
+    width: 8px;
   }
 
 .list::-webkit-scrollbar-track {
@@ -34,16 +36,16 @@ background-color: transparent; /* Color del fondo de la barra de desplazamiento 
 }
 
 .list::-webkit-scrollbar-thumb {
-background-color: #4b4b4b; /* Color del relleno de la barra de desplazamiento */
+background-color: #ccc; /* Color del relleno de la barra de desplazamiento */
 border-radius: 4px; /* Radio de borde de la barra de desplazamiento */
 }
 
 .list::-webkit-scrollbar-thumb:hover {
-background-color: #383838; /* Color del relleno de la barra de desplazamiento en estado hover */
+background-color: #aaa; /* Color del relleno de la barra de desplazamiento en estado hover */
 }
 
 .list::-webkit-scrollbar-thumb:active {
-background-color: #363636; /* Color del relleno de la barra de desplazamiento en estado activo */
+background-color: #aaa; /* Color del relleno de la barra de desplazamiento en estado activo */
 }
 
 .list::-webkit-scrollbar-corner {
@@ -52,16 +54,17 @@ background-color: transparent; /* Color de la esquina de la barra de desplazamie
 
 .li{
     display: flex;
-    border: #6b6b6b solid 1px;
-    width: 88vw;
+    border: #000000 solid 1px;
+    width: fit-content;
+    padding-right: 5px;
+    margin-bottom: -15px;
+    border-bottom: transparent;
 }
 
 /* id */
 .liid {
     min-width: 250px;
-max-width: 250px;
-    justify-content: center;
-    border-right: 2px solid #000000;
+    max-width: 250px;
     display: flex;
     height: 40px;
     width: 80vw;
@@ -79,7 +82,6 @@ max-width: 250px;
     border-right: 2px solid #000000;
     text-align: center;
     padding: 0 5px;
-    
     align-items: center;
 }
 
@@ -87,11 +89,11 @@ max-width: 250px;
 .limarc {
     
     min-width: 120px;
+    max-width: 120px;
     text-align: center;
     display: flex;
     justify-content: center;
     border-right: 2px solid #000000;
-    
     align-items: center;
 }
 
@@ -123,7 +125,7 @@ max-width: 250px;
 /* subcategory*/
 .licat {
    
-    min-width: 200px;
+    min-width: 250px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -136,6 +138,7 @@ max-width: 250px;
 .lirat {
    
     min-width: 90px;
+    max-width: 90px;
     text-align: center;
     display: flex;
     justify-content: center;
