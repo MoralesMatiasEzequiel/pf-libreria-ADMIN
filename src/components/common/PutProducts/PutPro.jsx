@@ -14,7 +14,7 @@ const PutPro = () => {
 
     const dispatch = useDispatch();
 
-    const { productOfEdit, productsOfSee } = useSelector(state => state.products);
+    const { productOfEdit, productsOfSee , products } = useSelector(state => state.products);
     const { subcategories } = useSelector(state => state.subcategories);
 
     const [prodOfEdit, setProdOfEdit] = useState({});
@@ -33,7 +33,7 @@ const PutPro = () => {
 
         dispatch(editProduct(prodOfEdit));
         dispatch(modifiedProduct({}))
-
+        setProductOfSee([])
 
     };
     const handleChange = (event) => {
@@ -92,10 +92,26 @@ const PutPro = () => {
             subcategories: [event.target.value],
         });
     };
+
+
+
     useEffect(() => {
         setProductOfSee(productsOfSee)
-        setProdOfEdit(productOfEdit)
-    }, [productOfEdit, productsOfSee])
+
+        setProdOfEdit({
+            subcategories: productOfEdit.subcategories,
+            _id: productOfEdit._id,
+            name: productOfEdit.name,
+            brand: productOfEdit.brand,
+            stock: productOfEdit.stock,
+            price: productOfEdit.price,
+            salePrice: productOfEdit.salePrice,
+            description: productOfEdit.description,
+            image: productOfEdit.image,
+            active: productOfEdit.active
+        })
+
+    }, [productOfEdit, productsOfSee, products])
 
     return (
 
@@ -215,7 +231,7 @@ const PutPro = () => {
                         {errors.description && <p className="error">{errors.description}</p>}
 
                         {!image && <img src={prodOfEdit.image} style={{ width: "150px" }} />
-}
+                        }
 
                         {/* ------------- image ---------------- */}
                         <FormGroup className={style1.subirImg}>
@@ -231,15 +247,15 @@ const PutPro = () => {
 
                         <label htmlFor="subcategories">Subcategoría</label>
                         <Input
-                        type="select"
-                        name="subcategories"
-                        value={prodOfEdit.subcategories}
-                        onChange={handleSubcaty}
+                            type="select"
+                            name="subcategories"
+                            value={prodOfEdit.subcategories}
+                            onChange={handleSubcaty}
                         >
-                        <option value="">Seleccione una subcategoría</option>
-                        {subcategories.map((subcategory) => (
-                            <option value={subcategory._id}>{subcategory.name}</option>
-                        ))}
+                            <option value="">Seleccione una subcategoría</option>
+                            {subcategories.map((subcategory) => (
+                                <option value={subcategory._id}>{subcategory.name}</option>
+                            ))}
                         </Input>
                         {errors.subcategories && <p className="error">{errors.subcategories}</p>}
                     </div>

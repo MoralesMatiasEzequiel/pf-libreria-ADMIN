@@ -23,7 +23,7 @@ export const productsSlice = createSlice({
         editProductState: (state, action) => {
             state.productOfEdit = {}
             state.products = [...state.products.filter(pro => pro._id !== action.payload._id), action.payload]
-            state.productSee = [...state.productSee.filter(pro => pro._id !== action.payload._id), action.payload]
+            state.productsOfSee = [...state.productSee.filter(pro => pro._id !== action.payload._id), action.payload]
         },
         findsByNameState: (state, action) => {
             
