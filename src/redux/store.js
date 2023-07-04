@@ -10,7 +10,7 @@ export default configureStore({
     reducer:{
         products: Products,
         user: User,
-        orders: Orders
+        orders: Orders,
         subcategories: Subcategories
      }   
 }) 
