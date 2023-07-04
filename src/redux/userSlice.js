@@ -27,9 +27,16 @@ export const userSlice = createSlice({
         getUserIDState: (state, action) => {
             state.detail = action.payload;
         },
+        userBanned: (state, action) => {
+            const { userId, active } = action.payload;
+            const user = state.users.find(user => user._id === userId);
+            if (user) {
+              user.active = active;
+            }
+          }
     }
 });
 
-export const { getUsersState, putUserState, userDetailID, getUserIDState } = userSlice.actions;
+export const { getUsersState, putUserState, userDetailID, getUserIDState, userBanned } = userSlice.actions;
 
 export default userSlice.reducer;

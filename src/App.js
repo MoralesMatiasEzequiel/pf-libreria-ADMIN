@@ -36,9 +36,7 @@ function App() {
           <Route path=':put' element={<PutUsers />} />
           <Route path=':detail' element={<DetailUser />} />
         </Route>
-
         <Route path='/orders' element={<Orders />}/>
-
       </Routes>
     </div>
   );
