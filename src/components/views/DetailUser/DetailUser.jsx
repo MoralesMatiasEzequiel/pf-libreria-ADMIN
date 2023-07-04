@@ -34,9 +34,9 @@ const DetailUser = () => {
               <p>ID: {detail._id}</p>
               <p>Nickname: {detail.nickname}</p>
               <p>E-mail: {detail.email}</p>
-              <p>Reviews: {detail.reviews.length === 0 ? "No hay reviews." : detail.reviews.length + 1}</p>
-              <p>Producto(s) favorito(s): {detail.favorites.length === 0 ? "No hay favoritos." : detail.favorites.map(favorite => favorite + ", ")}</p>
-              <p>Compra(s) realizada(s): {detail.orders.length === 0 ? "No hay compras realizadas." : detail.orders.length + 1}</p>
+              <p>Reviews: {detail.reviews?.length === 0 ? "No hay reviews." : detail.reviews?.length + 1}</p>
+              <p>Producto(s) favorito(s): {detail.favorites?.length === 0 ? "No hay favoritos." : detail.favorites?.map(favorite => favorite + ", ")}</p>
+              <p>Compra(s) realizada(s): {detail.orders?.length === 0 ? "No hay compras realizadas." : detail.orders?.length + 1}</p>
               <p>Status: {detail.active === true ? "Activo" : "Inactivo"}</p>
               <button onClick={handleBanUser}>Bannear usuarios</button>
             </div>
