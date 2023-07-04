@@ -3,7 +3,7 @@ import { getAllProductsState, createProductState, modifiedProductState, editProd
 
 export const getAllProducts = () => {
     return async (dispatch) => {
-        const dataApi = await axios.get("/product");
+        const dataApi = await axios.get("/product/all");
         const products = dataApi.data;
         dispatch(getAllProductsState(products));
     };
