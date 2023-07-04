@@ -5,40 +5,50 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllOrders } from "../../../redux/ordersActions";
 
 const Orders = () => {
-    let { pathname } = useLocation();
-    const dispatch = useDispatch();
+  let { pathname } = useLocation();
+  const dispatch = useDispatch();
 
-    const { orders } = useSelector(state => state.orders);
+  const { orders } = useSelector((state) => state.orders);
+  const { products } = useSelector((state) => state.products);
 
-    useEffect(() => {
-        dispatch(getAllOrders())
-    }, [])
+  useEffect(() => {
+    dispatch(getAllOrders());
+  }, []);
 
-    return (
-        <div className={style.postcont}>
-            <div className={style.filandor}>
-                <p>{orders.length + 1} compras realizadas.</p>
-                <p>Ordenar por: </p>
-            </div>
-            {orders.map((order, index) => {
-                    return (
-                        <div>
-                            <p>Estado de la compra: {order.state}</p>
-                            <p>Nombre del comprador: {order.name} {order.surname}</p>
-                            <p>Correo: {order.email}</p>
-                            <p>Teléfono: {order.phone}</p>
-                            <p>DNI: {order.dni}</p>
-                            <p>Dirección: Calle {order.street}, n° {order.number}, piso {order.floor}, dpto {order.apartment}</p>
-                            <p>Ciudad: {order.city}, {order.province}</p>
-                            <p>Comentario(s): {order.comentary}</p>
-                            <p>Producto(s) comprado(s): {order.products.map(product => product + ", ")}</p>
-                            <p>Costo final: ${order.finalPrice}.-</p>
-                            <p>-----------------------------------------</p>
-                        </div>
-                    )
-                })}
-        </div>
-    )
-}
+  const getProductNames = (productIds) => {
+    return productIds.map((productId) => {
+      const product = products.find((product) => product._id === productId);
+      return product ? product.name : "";
+    });
+  };
+
+  return (
+    <div className={style.postcont}>
+      <div className={style.filandor}>
+        <p>{orders.length + 1} compras realizadas.</p>
+        <p>Ordenar por: </p>
+      </div>
+      {orders.map((order, index) => {
+        const productNames = getProductNames(order.products);
+        console.log(productNames);
+        return (
+          <div key={index}>
+            <p>Estado de la compra: {order.state}</p>
+            <p>Nombre del comprador: {order.name} {order.surname}</p>
+            <p>Correo: {order.email}</p>
+            <p>Teléfono: {order.phone}</p>
+            <p>DNI: {order.dni}</p>
+            <p>Dirección: Calle {order.street}, n° {order.number}, piso {order.floor}, dpto {order.apartment}</p>
+            <p>Ciudad: {order.city}, {order.province}</p>
+            <p>Comentario(s): {order.comentary}</p>
+            <p>Producto(s) comprado(s): {productNames.join(", ")}</p>
+            <p>Costo final: ${order.finalPrice}.-</p>
+            <p>-----------------------------------------</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default Orders;
