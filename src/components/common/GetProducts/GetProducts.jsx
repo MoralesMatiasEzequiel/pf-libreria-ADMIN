@@ -3,12 +3,11 @@ import style from "./GetProducts.module.css";
 
 import { modifiedProduct } from "../../../redux/productsActions";
 import { Link } from "react-router-dom";
+
 const GetProducts = () => {
     const dispatch = useDispatch();
     const { products } = useSelector(state => state.products);
     const { subcategories } = useSelector(state => state.subcategories);
-
-    console.log(subcategories);
 
     const getSubcategoryName = (subcategoryId) => {
         const subcategory = subcategories.find(subcat => subcat._id === subcategoryId);
