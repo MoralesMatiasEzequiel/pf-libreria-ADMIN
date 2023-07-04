@@ -21,13 +21,9 @@ export const userSlice = createSlice({
         putUserState: (state, action) => {
             state.detail = state.users.find(user => user._id === action.payload._id);
         },       
-        // userBanned: (state, action) => {
-        //     const { userId, active } = action.payload;
-        //     const user = state.users.find(user => user._id === userId);
-        //     if (user) {
-        //       user.active = !active;
-        //     }
-        // }
+        userBanned: (state, action) => {
+            state.detail.active = !state.detail.active;
+        }
     }
 });
 

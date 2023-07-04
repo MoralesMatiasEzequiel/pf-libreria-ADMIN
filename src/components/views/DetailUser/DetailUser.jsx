@@ -8,6 +8,11 @@ const DetailUser = () => {
   const dispatch = useDispatch();
   const { detail } = useSelector(state => state.user);
   const { products } = useSelector(state => state.products);
+  
+
+  useEffect(() => {
+
+  }, [detail])
 
   const handleBanUser = () => {
     dispatch(updateUserStatus(detail._id, false));
@@ -39,7 +44,7 @@ const DetailUser = () => {
               <p>Producto(s) favorito(s): {detail.favorites?.length === 0 ? "No hay favoritos." : getFavoriteNames(detail.favorites).join(", ")}</p>
               <p>Compra(s) realizada(s): {detail.orders?.length === 0 ? "No hay compras realizadas." : detail.orders?.length + 1}</p>
               <p>Status: {detail.active === true ? "Activo" : "Inactivo"}</p>
-              <button onClick={handleBanUser}>Bannear usuarios</button>
+              {detail.active === true ? <button onClick={handleBanUser}>Bannear usuario</button> : <button onClick={handleBanUser}>Activar usuario</button>}
             </div>
           </div>
         </div>

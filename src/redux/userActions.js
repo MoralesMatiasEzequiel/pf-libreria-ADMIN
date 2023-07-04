@@ -1,5 +1,5 @@
 import axios  from "axios";
-import { getUsersState, putUserState, userDetailID, getUserIDState  } from "./userSlice";
+import { getUsersState, putUserState, userDetailID, getUserIDState, userBanned  } from "./userSlice";
 
 export const getAllUser = () => {
     return async (dispatch) => {
@@ -51,7 +51,7 @@ export const updateUserStatus = (userId, active) => {
       try {
         const { data } = await axios.put('/user', bannedUser);  
         // console.log(data);
-        // dispatch()        
+        dispatch(userBanned());     
       } catch (error) {
         console.log('Error user banner');
       }
