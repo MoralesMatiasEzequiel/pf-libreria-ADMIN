@@ -3,19 +3,20 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { getUserByID } from "../../../redux/userActions";
+import { updateUserStatus } from "../../../redux/userActions";
 
 const PutUsers = () => {
 
-    const { userEdited } = useSelector(state => state.user);
+    // const { userEdited } = useSelector(state => state.user);
+    
+    // const [userEdit, setUserEdit] = useState(userEdited);
+    
+    const { users } = useSelector(state => state.user);
 
-    const [userEdit, setUserEdit] = useState(userEdited);
-
-    // const { users } = useSelector(state => state.user);
     const [ editUser, setEditUser ] = useState("");
+    // console.log(editUser);
     const dispatch = useDispatch();
-    const navigate = useNavigate(); 
 
-    // const [ editUser, setEditUser ] = useState(formUser());
     // const [ userEdit, setUserEdit ] = useState(
     //     {
     //         id: users._id,
@@ -27,12 +28,12 @@ const PutUsers = () => {
         setEditUser(event.target.value);
     };
 
-    const handleChangeB = (event) => {
-        const { name, value } = event.target;
-        setUserEdit((editUser) => ({
-            ...editUser,
-        }));
-    };
+    // const handleChangeB = (event) => {
+    //     const { name, value } = event.target;
+    //     setUserEdit((editUser) => ({
+    //         ...editUser,
+    //     }));
+    // };
     
 
     const handleKeyPress = (event) => {
@@ -40,7 +41,6 @@ const PutUsers = () => {
           event.preventDefault();
           onSearch(editUser);
           setEditUser("");
-          navigate(`/users/${editUser}`); 
         }
     };
 
@@ -50,9 +50,6 @@ const PutUsers = () => {
         }
     };
 
-
-
-
     const handleSubmit = () => {
         
     }
@@ -61,9 +58,9 @@ const PutUsers = () => {
         <div className={style.postcont}>
             <div>
                 <h1>Editar usuario</h1>
-                <label htmlFor="id">Ingrese el ID del usuario: </label>
+                <label htmlFor="_id">Ingrese el ID del usuario: </label>
                 <input
-                    name="id"
+                    name="_id"
                     type="search"
                     onChange={handleChange}
                     onKeyPress={handleKeyPress}
@@ -73,7 +70,6 @@ const PutUsers = () => {
                 <button onClick={() => {
                 onSearch(editUser);
                 setEditUser("");
-                navigate(`/users/${editUser}`);
                 }}>Buscar</button>
             </div>
             

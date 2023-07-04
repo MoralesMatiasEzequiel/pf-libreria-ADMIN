@@ -8,16 +8,9 @@ const DetailUser = () => {
   const dispatch = useDispatch();
   const { detail } = useSelector(state => state.user);
   const { products } = useSelector(state => state.products);
-  const [ detailUser, setDetailUser ] = useState({});
-
-  useEffect(() => {
-    setDetailUser(detail)
-  }, [detail]);
 
   const handleBanUser = () => {
-    const updatedUser = { ...detailUser, active: false }; // Cambia el estado a "Inactivo"
-    dispatch(updateUserStatus(updatedUser));
-    setDetailUser(updatedUser); // Actualiza el estado localmente
+    dispatch(updateUserStatus(detail._id, false));
   };
 
   const getFavoriteNames = (favoriteIds) => {
