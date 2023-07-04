@@ -1,5 +1,5 @@
 import axios  from "axios";
-import { getUsersState, putUserState, userDetailID, getUserIDState, userBanned  } from "./userSlice";
+import { getUsersState, putUserState, userDetailID, getUserIDState  } from "./userSlice";
 
 export const getAllUser = () => {
     return async (dispatch) => {
@@ -40,11 +40,18 @@ export const getUserID = (user) => {
 };
 
 export const updateUserStatus = (userId, active) => {
+    
     return async (dispatch) => {
-      try {
-        await axios.put(`/user/${userId}`, { active });  
-        dispatch(userBanned({ userId, active }));
         
+      const bannedUser = {
+        _id: userId,
+        active: active
+      }  
+
+      try {
+        const { data } = await axios.put('/user', bannedUser);  
+        // console.log(data);
+        // dispatch()        
       } catch (error) {
         console.log('Error user banner');
       }

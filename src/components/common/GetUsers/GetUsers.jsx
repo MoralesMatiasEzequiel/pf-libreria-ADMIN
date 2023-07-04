@@ -38,6 +38,11 @@ const GetUsers = () => {
                 {users.map((user, index = 1) => {
                     return (
                         <li key={index} className={style.li}>
+                            <Link to={'detail'}>
+                                <button onClick={() => handlerDetailUser(user)}>
+                                    <i class="bi bi-eye-fill"></i>
+                                </button>
+                            </Link>
                             <p>{index + 1}</p>       
                             <p>{user._id}</p>
                             <br />
@@ -48,12 +53,6 @@ const GetUsers = () => {
                             <p>{user.email}</p>
                             <br />
                             <p>{user.active === true ? "Activo" : "Inactivo"}</p>
-                            {/* <NavLink to="users/put" onClick={handlePut(user._id)} >EDITAR</NavLink> */}
-                            <Link to={'detail'}>
-                                <button onClick={() => handlerDetailUser(user)}>
-                                    <i class="bi bi-eye-fill"></i>
-                                </button>
-                            </Link>
                         </li>                       
                     )
                 })}
