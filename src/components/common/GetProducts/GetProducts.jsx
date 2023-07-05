@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./GetProducts.module.css";
+import Dropdown from 'react-bootstrap/Dropdown';
+import NavItem from 'react-bootstrap/NavItem';
+import NavLink from 'react-bootstrap/NavLink';
+import { modifiedProduct, orderByAZ, orderByZA, orderPriceToLow, orderPriceToUp, orderStockToLow, orderStockToUp } from "../../../redux/productsActions";
 
-import { modifiedProduct } from "../../../redux/productsActions";
 import { Link } from "react-router-dom";
 
 const GetProducts = () => {
@@ -17,11 +20,64 @@ const GetProducts = () => {
     const handlePut = (product) => {
         dispatch(modifiedProduct(product));
     };
+
+    const orderAZ = () => {
+        dispatch(orderByAZ())
+    }
+    const orderZA = () => {
+        dispatch(orderByZA())
+    }
+    const orderPriceLow = () => {
+        dispatch(orderPriceToLow())
+    }
+    const orderPriceUp = () => {
+        dispatch(orderPriceToUp())
+    }
+    const orderStockLow = () => {
+        dispatch(orderStockToLow())
+    }
+    const orderStockUp = () => {
+        dispatch(orderStockToUp())
+    }
+
     return (
         <div className={style.postcont}>
             <div className={style.filandor}>
                 <p>{products.length} productos</p>
-                <p>ordenar por:</p>
+
+
+                <Dropdown as={NavItem}>
+                    <Dropdown.Toggle as={NavLink}>Nombre</Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item onClick={orderAZ}>A-Z</Dropdown.Item>
+                        <Dropdown.Item onClick={orderZA}>Z-A</Dropdown.Item>
+
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown as={NavItem}>
+                    <Dropdown.Toggle as={NavLink}>Precio</Dropdown.Toggle>
+                    <Dropdown.Menu>
+
+                        <Dropdown.Item onClick={orderPriceLow}> $ bajo - alto</Dropdown.Item>
+                        <Dropdown.Item onClick={orderPriceUp}>$ alto - bajo</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+                <Dropdown as={NavItem}>
+                    <Dropdown.Toggle as={NavLink}>Stock</Dropdown.Toggle>
+                    <Dropdown.Menu>
+
+                        <Dropdown.Item onClick={orderStockLow}> bajo - alto</Dropdown.Item>
+                        <Dropdown.Item onClick={orderStockUp}> alto - bajo</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+                <Dropdown as={NavItem}>
+                    <Dropdown.Toggle as={NavLink}>Subcategorias</Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item>lapices</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
             </div>
 
             <ul className={style.list}>

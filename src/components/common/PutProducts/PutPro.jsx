@@ -1,10 +1,12 @@
+import Form from 'react-bootstrap/Form';
 
 import style1 from "../GetProducts/GetProducts.module.css";
 import style2 from "../PostProduct/PostProduct.module.css";
-
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 import validation from "../PostProduct/validation";
 
-import { modifiedProduct, editProduct, findsByName, clearProductsOfSee } from "../../../redux/productsActions";
+import { modifiedProduct, editProduct, findsByName, clearProductsOfSee, disableProduct } from "../../../redux/productsActions";
 import { FormGroup, Input } from "reactstrap"
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +16,7 @@ const PutPro = () => {
 
     const dispatch = useDispatch();
 
-    const { productOfEdit, productsOfSee , products } = useSelector(state => state.products);
+    const { productOfEdit, productsOfSee, products } = useSelector(state => state.products);
     const { subcategories } = useSelector(state => state.subcategories);
 
     const [prodOfEdit, setProdOfEdit] = useState({});
@@ -23,6 +25,37 @@ const PutPro = () => {
     const [productOfSee, setProductOfSee] = useState([]);
     const [valueInput, setValueInput] = useState('');
 
+    // disable
+
+
+    const [radioValue, setRadioValue] = useState();
+    const radios = [
+        { name: 'Deshabilitado', value: '1' },
+        { name: 'Activo', value: '2' }
+    ];
+
+    const handleDisa = (event) => {
+        setRadioValue(event.currentTarget.value)
+        setProdOfEdit({
+            ...prodOfEdit,
+            active: event.currentTarget.value === "2" ? true : false
+        })
+    }
+    const handleDisable = (pro) => {
+        let proAct = {
+            subcategories: pro.subcategories,
+            _id: pro._id,
+            name: pro.name,
+            brand: pro.brand,
+            stock: pro.stock,
+            price: pro.price,
+            salePrice: pro.salePrice,
+            description: pro.description,
+            image: pro.image,
+            active: !pro.active
+        }
+        dispatch(disableProduct(proAct))
+    }
 
     const handlePut = (product) => {
         dispatch(modifiedProduct(product))
@@ -53,13 +86,13 @@ const PutPro = () => {
     const handleProductsOfSee = (event) => {
         setValueInput(event.target.value)
         dispatch(findsByName(event.target.value));
+
     }
-    const handleclearProductsOfSee = (event) => {
+    const handleclearProductsOfSee = () => {
         setProductOfSee([])
         setValueInput('')
         dispatch(clearProductsOfSee());
     }
-
 
     //--------------------------------- CLOUDINARY --------------------------
     const [image, setImage] = useState("")
@@ -110,8 +143,10 @@ const PutPro = () => {
             image: productOfEdit.image,
             active: productOfEdit.active
         })
+        setRadioValue(productOfEdit.active === true ? '2' : '1')
 
-    }, [productOfEdit, productsOfSee, products])
+
+    }, [productOfEdit, productsOfSee, products, valueInput, products])
 
     return (
 
@@ -135,7 +170,7 @@ const PutPro = () => {
                     <p className={style1.listo}>Stock:</p>
                     <p className={style1.licat}>Sub-categ:</p>
                     <p className={style1.lirat}>Rating:</p>
-
+                    <p className={style1.lista}>Estado:</p>
                 </li>
 
                 {productsOfSee.map(pro => {
@@ -160,6 +195,16 @@ const PutPro = () => {
 
                             <p className={style1.lirat}>{pro.rating}</p>
 
+                            <p className={style1.lista}>{pro.active ? "Activo" : "Inactivo"}</p>
+
+
+                            <Form>
+                                <Form.Check onClick={() => handleDisable(pro)}
+                                    type="switch"
+                                    id="custom-switch"
+                                    defaultChecked={pro.active ? true : false}
+                                />
+                            </Form>
 
 
                         </li>
@@ -232,6 +277,23 @@ const PutPro = () => {
 
                         {!image && <img src={prodOfEdit.image} style={{ width: "150px" }} />
                         }
+
+                        <ButtonGroup>
+                            {radios.map((radio, idx) => (
+                                <ToggleButton
+                                    key={idx}
+                                    id={`radio-${idx}`}
+                                    type="radio"
+                                    variant={idx % 2 ? 'outline-success' : 'outline-danger'}
+                                    name="radio"
+                                    value={radio.value}
+                                    checked={radioValue === radio.value}
+                                    onChange={handleDisa}
+                                >
+                                    {radio.name}
+                                </ToggleButton>
+                            ))}
+                        </ButtonGroup>
 
                         {/* ------------- image ---------------- */}
                         <FormGroup className={style1.subirImg}>
