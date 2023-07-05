@@ -178,27 +178,29 @@ const PostForm = () => {
                             cols="50"
                         />
                         {errors.description && <p className="error">{errors.description}</p>}
+                        
+                        <div className={style.subcategoriesLabel}>
+                            <label htmlFor="subcategories">Subcategoría</label>
+                            <Input className={style.subcategories} type="select" name="subcategories" value={newProduct.subcategories} onChange={handleSubcaty}>
+                            {subcategories.map((subcategory) => (
+                                <option key={subcategory._id} value={subcategory._id}>
+                                {subcategory.name}
+                                </option>
+                            ))}
+                            </Input>
+                            {errors.subcategories && <p className="error">{errors.subcategories}</p>}
+                        </div>
 
                         {/* ------------- image ---------------- */}
                         <FormGroup className={style.subirImg}>
                             <label htmlFor="image">Subir Imagen</label><br />
                             <Input type="file" name="image" placeholder="Subir imagen" onChange={uploadImage} />
                             {
-                                loading ? (<p>Cargando imagen...</p>) : (<img src={image} style={{ width: "150px" }} />)
+                                loading ? (<p>Cargando imagen...</p>) : (<img src={image} alt="" style={{ width: "100px" }} />)
                             }
                         </FormGroup>
                         {errors.image && <p className="error">{errors.image}</p>}
                         {/* ------------- image ---------------- */}
-
-                        <label htmlFor="subcategories">Subcategoría</label>
-                        <Input type="select" name="subcategories" value={newProduct.subcategories} onChange={handleSubcaty}>
-                        {subcategories.map((subcategory) => (
-                            <option key={subcategory._id} value={subcategory._id}>
-                            {subcategory.name}
-                            </option>
-                        ))}
-                        </Input>
-                        {errors.subcategories && <p className="error">{errors.subcategories}</p>}
                     </div>
                 </div>
                 <button className={style.createBtn} disabled={!newProduct.brand || !newProduct.description || !newProduct.name || !newProduct.image || errors.name || errors.brand || errors.image || errors.description || errors.stock || errors.price}>Crear producto</button>

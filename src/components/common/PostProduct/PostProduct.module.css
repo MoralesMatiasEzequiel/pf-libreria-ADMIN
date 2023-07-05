@@ -2,14 +2,14 @@
     width: 78vw;
     margin: 15px;
     border-style: solid;
-    border-color: rgba(3, 3, 3, 0.384);
+    border-color: #ff9e5c;
     border-radius: 5px;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    background-color: rgba(3, 3, 3, 0.384);
+    background-color: #ff9e5c;
 }
 
 .contfor1y2 {
@@ -32,15 +32,53 @@
     margin-bottom: 5px;
 }
 
-.formuno input,
-.formdos input {
+.formuno input {
     margin-bottom: auto;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 }
+.formdos input{
+    border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.subcategoriesLabel{
+    text-align: left;
+    margin-top: 15px;
+}
+.subcategories{
+    margin-top: auto;
+}
+.subcategories:hover{
+    cursor: pointer;
+}
+.subcategories::-webkit-scrollbar {
+    color: #ccc;
+    width: 8px;
+  }
+
+.subcategories::-webkit-scrollbar-track {
+background-color: transparent; /* Color del fondo de la barra de desplazamiento */
+}
+
+.subcategories::-webkit-scrollbar-thumb {
+border-radius: 4px; /* Radio de borde de la barra de desplazamiento */
+}
+
+.subcategories::-webkit-scrollbar-thumb:hover {
+background-color: #aaa; /* Color del relleno de la barra de desplazamiento en estado hover */
+}
+
+.subcategories::-webkit-scrollbar-thumb:active {
+background-color: #ccc; /* Color del relleno de la barra de desplazamiento en estado activo */
+}
+
+.subcategories::-webkit-scrollbar-corner {
+background-color: #ccc; /* Color de la esquina de la barra de desplazamiento */
+}
 
 .subirImg{
-    margin-bottom: auto;
+    margin-top: 15px;
     text-align: left;
 }
 

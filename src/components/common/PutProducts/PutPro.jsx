@@ -1,5 +1,6 @@
 import Form from 'react-bootstrap/Form';
 
+import style from "./PutPro.module.css";
 import style1 from "../GetProducts/GetProducts.module.css";
 import style2 from "../PostProduct/PostProduct.module.css";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -151,18 +152,20 @@ const PutPro = () => {
     return (
 
         <div >
-            {!prodOfEdit._id && <div >
-                <h4>buscar producto</h4>
-                <label htmlFor=""> buscar</label>
-                <input value={valueInput} onChange={handleProductsOfSee} type="text" />
-                <button onClick={handleclearProductsOfSee}>Limpiar busqueda</button>
 
-            </div>}
+            {!prodOfEdit._id && 
+                <div className={style.searchBar}>
+                    <h4>Buscar producto para editar:</h4>
+                    <input value={valueInput} onChange={handleProductsOfSee} type="text" />
+                    <button onClick={handleclearProductsOfSee}>Limpiar búsqueda</button>
+                </div>
+            }
 
-            {!productOfEdit._id && productOfSee.length > 0 && <ul className={style1.list}>
-
-                <li className={style1.li}>
-
+            {!productOfEdit._id && productOfSee.length > 0 && 
+            
+                <ul className={style1.list}>
+                    <li className={style1.li}>
+             
                     <p className={style1.lista}>Editar</p>
                     <p className={style1.liname}>Titulo:</p>
                     <p className={style1.limarc}>Marca:</p>
@@ -171,17 +174,14 @@ const PutPro = () => {
                     <p className={style1.licat}>Sub-categ:</p>
                     <p className={style1.lirat}>Rating:</p>
                     <p className={style1.lista}>Estado:</p>
-                </li>
-
-                {productsOfSee.map(pro => {
-
-                    return (
-                        <li className={style1.li}>
-
-                            <button className={style1.lista} onClick={() => handlePut(pro)}>
-                                <i class="bi bi-pencil-square"> </i>
-                            </button>
-
+                    </li>
+                    {productsOfSee.map(pro => {
+                        return (
+                            <li className={style1.li}>
+                                <button className={style1.lista} onClick={() => handlePut(pro)}>
+                                    <i class="bi bi-pencil-square"> </i>
+                                </button>
+                         
 
                             <p className={style1.liname}> {pro.name}</p>
 
@@ -197,21 +197,12 @@ const PutPro = () => {
 
                             <p className={style1.lista}>{pro.active ? "Activo" : "Inactivo"}</p>
 
+                            </li>
+                        )
+                    })}
+                </ul>
+            }
 
-                            <Form>
-                                <Form.Check onClick={() => handleDisable(pro)}
-                                    type="switch"
-                                    id="custom-switch"
-                                    defaultChecked={pro.active ? true : false}
-                                />
-                            </Form>
-
-
-                        </li>
-                    )
-                })}
-
-            </ul>}
 
 
             {prodOfEdit._id && <form action="" className={style2.form} onSubmit={handleSubmit}>
@@ -275,8 +266,16 @@ const PutPro = () => {
                         />
                         {errors.description && <p className="error">{errors.description}</p>}
 
-                        {!image && <img src={prodOfEdit.image} style={{ width: "150px" }} />
-                        }
+                        <div className={style2.subcategoriesLabel}>
+                            <label htmlFor="subcategories">Subcategoría</label>
+                            <Input className={style2.subcategories} type="select" name="subcategories" value={prodOfEdit.subcategories} onChange={handleSubcaty}>
+                                <option value="">Seleccione una subcategoría</option>
+                                {subcategories.map((subcategory) => (
+                                    <option value={subcategory._id}>{subcategory.name}</option>
+                                ))}
+                            </Input>
+                            {errors.subcategories && <p className="error">{errors.subcategories}</p>}
+                        </div>
 
                         <ButtonGroup>
                             {radios.map((radio, idx) => (
@@ -296,30 +295,19 @@ const PutPro = () => {
                         </ButtonGroup>
 
                         {/* ------------- image ---------------- */}
-                        <FormGroup className={style1.subirImg}>
+                        <FormGroup className={style2.subirImg}>
                             <label htmlFor="image">Subir Imagen</label><br />
                             <Input type="file" name="image" placeholder="Subir imagen" onChange={uploadImage} />
                             {
-                                loading ? (<p>Cargando imagen...</p>) : (<img src={image} style={{ width: "150px" }} />)
+                                loading ? (<p>Cargando imagen...</p>) : (<img src={image} alt="" style={{ width: "150px" }} />)
                             }
                         </FormGroup>
 
                         {errors.image && <p className="error">{errors.image}</p>}
                         {/* ------------- image ----------------  */}
 
-                        <label htmlFor="subcategories">Subcategoría</label>
-                        <Input
-                            type="select"
-                            name="subcategories"
-                            value={prodOfEdit.subcategories}
-                            onChange={handleSubcaty}
-                        >
-                            <option value="">Seleccione una subcategoría</option>
-                            {subcategories.map((subcategory) => (
-                                <option value={subcategory._id}>{subcategory.name}</option>
-                            ))}
-                        </Input>
-                        {errors.subcategories && <p className="error">{errors.subcategories}</p>}
+                        {!image && <img src={prodOfEdit.image} alt="" style={{ width: "75px",marginTop: "0px" }} />
+                        }
                     </div>
                 </div>
                 <button className={style2.createBtn} disabled={!prodOfEdit.brand || !prodOfEdit.description || !prodOfEdit.name || !prodOfEdit.image || errors.name || errors.brand || errors.image || errors.description || errors.stock || errors.price}>Editar producto</button>
