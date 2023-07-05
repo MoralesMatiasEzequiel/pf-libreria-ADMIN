@@ -1,0 +1,45 @@
+.container{
+    background-color: #ff9e5c;
+    margin: auto 125px;
+    border-radius: 5px;
+    height: 80vh;
+}
+
+.conta{
+    height: 80vh;
+    overflow: auto;
+}
+
+.imgContainer{
+    color: white;
+}
+
+.img{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.dataContainer{
+    text-align: left;
+    margin-left: 15px;
+}
+
+.dataContainer p{
+    color: white;
+    font-weight: 500;
+}
+
+.dataContainer button{
+    background-color: white;
+    border: #ff9e5c 1px solid;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.dataContainer button:hover{
+    background-color: #ff9e5c;
+    border-color: white;
+    color: white;
+}

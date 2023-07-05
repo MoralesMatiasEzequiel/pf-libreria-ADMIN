@@ -26,34 +26,24 @@ const DetailUser = () => {
   };
 
   return (
-    <div className={style.container}>
-      <div className="row">
-        <div>
-          <div>
-            <img className="card-img-top" src={detail.picture} alt={detail.name} style={{ maxWidth: "300px", maxHeight: "400px" }} />
+      <div className={style.container}>
+        <div className={style.conta}>
+          <div className={style.imgContainer}>
+            <img className={style.img} src={detail.picture} alt={detail.name}/>
+            <h5>{detail.nickname}</h5>
           </div>
-        </div>
-        <div>
-          <div>
-            <div>
-              <h5>{detail.name}</h5>
-              <p>ID: {detail._id}</p>
-              <p>Nickname: {detail.nickname}</p>
-              <p>E-mail: {detail.email}</p>
-              <p>Reviews: {detail.reviews?.length === 0 ? "No hay reviews." : detail.reviews?.length + 1}</p>
-              <p>Producto(s) favorito(s): {detail.favorites?.length === 0 ? "No hay favoritos." : getFavoriteNames(detail.favorites).join(", ")}</p>
-              <p>Compra(s) realizada(s): {detail.orders?.length === 0 ? "No hay compras realizadas." : detail.orders?.length + 1}</p>
-              <p>Status: {detail.active === true ? "Activo" : "Inactivo"}</p>
-              {detail.active === true ? <button onClick={handleBanUser}>Bannear usuario</button> : <button onClick={handleBanUser}>Activar usuario</button>}
-            </div>
+          <div className={style.dataContainer}>
+            <p>ID: {detail._id}</p>
+            <p>Nickname: {detail.nickname}</p>
+            <p>E-mail: {detail.email}</p>
+            <p>Reviews: {detail.reviews?.length === 0 ? "No hay reviews." : detail.reviews?.length + 1}</p>
+            <p>Producto(s) favorito(s): {detail.favorites?.length === 0 ? "No hay favoritos." : getFavoriteNames(detail.favorites).join(", ")}</p>
+            <p>Compra(s) realizada(s): {detail.orders?.length === 0 ? "No hay compras realizadas." : detail.orders?.length + 1}</p>
+            <p>Status: {detail.active === true ? "Activo" : "Inactivo"}</p>
+            {detail.active === true ? <button onClick={handleBanUser}>Bannear usuario</button> : <button onClick={handleBanUser}>Activar usuario</button>}
           </div>
-        </div>
-        <br />
-        <div>
-        <Link to={"/users/get"} className={style.linkBack}>{"Volver a lista de usuarios"}</Link>
         </div>
       </div>
-    </div>
   );
 };
 

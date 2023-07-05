@@ -29,7 +29,7 @@
 .list::-webkit-scrollbar {
     height: 8px; /* Ancho de la barra de desplazamiento */
     width: 8px;
-  }
+}
 
 .list::-webkit-scrollbar-track {
 background-color: transparent; /* Color del fondo de la barra de desplazamiento */
@@ -57,9 +57,9 @@ background-color: transparent; /* Color de la esquina de la barra de desplazamie
     border: #000000 solid 1px;
     width: fit-content;
     padding-right: 5px;
-    margin-bottom: -15px;
     border-bottom: transparent;
 }
+
 
 /* id */
 .liid {
@@ -71,18 +71,19 @@ background-color: transparent; /* Color de la esquina de la barra de desplazamie
     padding-left: 10px;
     text-align: center;
     align-items: center;
+    margin: 0px 15px;
 }
 
 /* titulo */
 .liname {
-  
     min-width: 250px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     border-right: 2px solid #000000;
     text-align: center;
     padding: 0 5px;
     align-items: center;
+    margin: 0px 15px;
 }
 
 /* marca */
@@ -92,9 +93,10 @@ background-color: transparent; /* Color de la esquina de la barra de desplazamie
     max-width: 120px;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     border-right: 2px solid #000000;
     align-items: center;
+    margin: 0px 15px;
 }
 
 /* precio */
@@ -103,59 +105,53 @@ background-color: transparent; /* Color de la esquina de la barra de desplazamie
     min-width: 120px;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     border-right: 2px solid #000000;
-    
     align-items: center;
+    margin: 0px 15px;
 }
-
 
 /* stock*/
 .listo {
-    
     min-width: 70px;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     border-right: 2px solid #000000;
-
     align-items: center;
+    margin: 0px 15px;
 }
 
 /* subcategory*/
 .licat {
-   
     min-width: 250px;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     border-right: 2px solid #000000;
+    margin: 0px 15px;
 }
-
 
 /* rating*/
 .lirat {
-   
     min-width: 90px;
     max-width: 90px;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     border-right: 2px solid #000000;
-    
     align-items: center;
+    margin: 0px 15px;
 }
-
 
 /* stado*/
 .lista {
-   
     min-width: 100px;
     text-align: center;
     display: flex;
     justify-content: center;
     border-right: 2px solid #000000;
-    
     align-items: center;
+    margin: 0px 0px;
 }
