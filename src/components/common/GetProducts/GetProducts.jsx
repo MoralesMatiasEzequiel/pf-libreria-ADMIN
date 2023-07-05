@@ -100,7 +100,6 @@ const GetProducts = () => {
                             <Link className={style.lista} onClick={() => handlePut(pro)} to="put">
                                 <i className="bi bi-pencil-square"></i>
                             </Link>
-
                             <p className={style.liname}>{pro.name}</p>
                             <p className={style.limarc}>{pro.brand}</p>
                             <p className={style.liprec}>{pro.price}</p>

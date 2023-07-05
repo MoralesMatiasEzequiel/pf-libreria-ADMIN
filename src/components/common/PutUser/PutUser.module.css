@@ -1,0 +1,29 @@
+.searchBar{
+    background-color: #ff9e5c;
+    border: solid 1px #ff9e5c;
+    border-radius: 5px;
+}
+
+.searchBar h4{
+    color: white;
+    margin-top: 15px;
+}
+
+.searchBar input{
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    margin-right: 5px;
+}
+
+.searchBar button{
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    background-color: white;
+}
+.searchBar button:hover{
+    background-color: transparent;
+    color: white;
+    border-color: white;
+}

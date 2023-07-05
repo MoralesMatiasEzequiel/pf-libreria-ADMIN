@@ -4,8 +4,6 @@ import { useDispatch } from "react-redux";
 import { getUserID } from "../../../redux/userActions";
 import { Link } from "react-router-dom";
 
-
-
 const GetUsers = () => {
 
     const { users } = useSelector(state => state.user);
@@ -25,16 +23,14 @@ const GetUsers = () => {
                 <p>Filtrar por: </p>
                 <p>Ordenar por: </p>
             </div>
-            <ul>
-              <div className={style.titlelist}>
-                  <p>ID:</p>
-                  <p>Nombre:</p>
-                  <p>Nickname:</p>
-                  <p>E-mail:</p>
-                  <p>Status:</p>
-              </div>
-            </ul>
-            <ul className={style.list}>            
+            <ul className={style.list}>
+                <li className={style.titlelist}>
+                    <p className={style.id}>ID:</p>
+                    <p className={style.nombre}>Nombre:</p>
+                    <p className={style.nick}>Nickname:</p>
+                    <p className={style.mail}>Email:</p>
+                    <p className={style.status}>Status:</p>
+                </li>      
                 {users.map((user, index = 1) => {
                     return (
                         <li key={index} className={style.li}>
@@ -43,16 +39,12 @@ const GetUsers = () => {
                                     <i class="bi bi-eye-fill"></i>
                                 </button>
                             </Link>
-                            <p>{index + 1}</p>       
-                            <p>{user._id}</p>
-                            <br />
+                            <p className={style.linum}>{index + 1}</p>       
+                            <p className={style.liid}>{user._id}</p>
                             <p className={style.liname}> {user.name}</p>
-                            <br />
-                            <p>{user.nickname}</p>
-                            <br />
-                            <p>{user.email}</p>
-                            <br />
-                            <p>{user.active === true ? "Activo" : "Inactivo"}</p>
+                            <p className={style.linick}>{user.nickname}</p>
+                            <p className={style.liemail}>{user.email}</p>
+                            <p className={style.liactive}>{user.active === true ? "Activo" : "Inactivo"}</p>
                         </li>                       
                     )
                 })}

@@ -56,16 +56,15 @@ const PutUsers = () => {
 
     return (
         <div className={style.postcont}>
-            <div>
-                <h1>Editar usuario</h1>
-                <label htmlFor="_id">Ingrese el ID del usuario: </label>
+            <div className={style.searchBar}>
+                <h4>Editar usuario</h4>
                 <input
                     name="_id"
                     type="search"
                     onChange={handleChange}
                     onKeyPress={handleKeyPress}
                     value={editUser}
-                    placeholder="Buscar usuario"
+                    placeholder="Ingrese ID del usuario:"
                 />
                 <button onClick={() => {
                 onSearch(editUser);

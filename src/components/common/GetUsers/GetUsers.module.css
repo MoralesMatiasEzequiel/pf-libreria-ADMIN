@@ -1,14 +1,15 @@
 .postcont {
-    background-color: rgba(3, 3, 3, 0.384);
+    background-color: #ff9e5c;
     margin: 15px;
     padding: 10px;
     border-radius: 5px;
 }
 
 .filandor {
+    color: white;
     display: flex;
-    background-color: white;
     border-radius: 5px;
+    padding-top: 15px;
 }
 .filandor p {
     margin-right: auto;
@@ -17,16 +18,17 @@
 
 .list {
     list-style: none;
-    background-color: aliceblue;
+    background-color: white;
     display: flex;
     flex-direction: column;
     height: 60vh;
-    overflow-y: auto;
+    overflow: auto;
     padding: 0;
     border-radius: 5px;
 }
 .list::-webkit-scrollbar {
     height: 8px; /* Ancho de la barra de desplazamiento */
+    width: 8px;
   }
 
 .list::-webkit-scrollbar-track {
@@ -43,7 +45,7 @@ background-color: #aaa; /* Color del relleno de la barra de desplazamiento en es
 }
 
 .list::-webkit-scrollbar-thumb:active {
-background-color: #999; /* Color del relleno de la barra de desplazamiento en estado activo */
+background-color: #aaa; /* Color del relleno de la barra de desplazamiento en estado activo */
 }
 
 .list::-webkit-scrollbar-corner {
@@ -57,20 +59,70 @@ background-color: transparent; /* Color de la esquina de la barra de desplazamie
     padding-left: 10px;
 }
 .titlelist p{
-    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-.li {
+.li{
     display: flex;
-    border: 1px #999 solid;
-    gap: 1em;
+    border: #000000 solid 1px;
+    width: fit-content;
+    border-bottom: transparent;
+    text-align: left;
+}
+
+.id{
+    margin-left: 120px;
+}
+
+.nombre{
+    margin-left: 260px;
+}
+
+.nick{
+    margin-left: 210px;
+}
+
+.mail{
+    margin-left: 190px;
+}
+
+.status{
+    margin-left: 280px;
+}
+
+.linum{
+    width: 50px;
+    text-align: center;
+    margin: 0px 15px;
+    border-right: solid 1px #000000;
 }
 
 .liid {
-    width: 180px;
-    padding-left: 100px;
+    width: 250px;
+    margin: 0px 15px;
+    border-right: solid 1px #000000;
 }
 
 .liname {
-    width: 150px;
+    width: 250px;
+    margin: 0px 15px;
+    border-right: solid 1px #000000;
+}
+
+.linick{
+    width: 250px;
+    margin: 0px 15px;
+    border-right: solid 1px #000000;
+}
+
+.liemail{
+    width: 300px;
+    margin: 0px 15px;
+    border-right: solid 1px #000000;
+}
+
+.liactive{
+    width: 100px;
+    margin: 0px 15px;
 }
