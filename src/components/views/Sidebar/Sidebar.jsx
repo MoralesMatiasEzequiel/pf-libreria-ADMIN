@@ -18,7 +18,7 @@ const SideBar = () => {
             <div className={style.rutscont}>
                 <ul className={style.rutsul}>
                     <li>
-                        <NavLink className={style.btnNav} to={"/products"} >
+                        <NavLink className={style.btnNav} to={"/products/get"} >
                             <div className={style.divli}>
                             <i class="bi bi-archive-fill"></i> 
                             <p>Productos</p>
