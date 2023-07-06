@@ -13,10 +13,6 @@ import PutUsers from './components/common/PutUser/PutUser';
 import DetailUser from './components/views/DetailUser/DetailUser';
 import Orders from './components/views/Orders/Orders';
 
-
-//axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://server-plumalibreria.onrender.com";
-
 function App() {
 
   // const location = useLocation();
