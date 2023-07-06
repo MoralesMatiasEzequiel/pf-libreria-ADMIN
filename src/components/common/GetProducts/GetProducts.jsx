@@ -3,7 +3,7 @@ import style from "./GetProducts.module.css";
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavItem from 'react-bootstrap/NavItem';
 import NavLink from 'react-bootstrap/NavLink';
-import { modifiedProduct, orderByAZ, orderByZA, orderPriceToLow, orderPriceToUp, orderStockToLow, orderStockToUp } from "../../../redux/productsActions";
+import { modifiedProduct, orderByAZ, orderByZA, orderPriceToLow, orderPriceToUp, orderStockToLow, orderStockToUp, productsByInactive } from "../../../redux/productsActions";
 
 import { Link } from "react-router-dom";
 
@@ -39,45 +39,55 @@ const GetProducts = () => {
     const orderStockUp = () => {
         dispatch(orderStockToUp())
     }
+    const byInactive = () => {
+        dispatch(productsByInactive())
+    }
 
     return (
         <div className={style.postcont}>
             <div className={style.filandor}>
                 <p>{products.length} productos</p>
 
+                <div className={style.filters}>
+                    <Dropdown as={NavItem}>
+                        <Dropdown.Toggle as={NavLink}>Nombre</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={orderAZ}>A-Z</Dropdown.Item>
+                            <Dropdown.Item onClick={orderZA}>Z-A</Dropdown.Item>
 
-                <Dropdown as={NavItem}>
-                    <Dropdown.Toggle as={NavLink}>Nombre</Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item onClick={orderAZ}>A-Z</Dropdown.Item>
-                        <Dropdown.Item onClick={orderZA}>Z-A</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
 
-                    </Dropdown.Menu>
-                </Dropdown>
-                <Dropdown as={NavItem}>
-                    <Dropdown.Toggle as={NavLink}>Precio</Dropdown.Toggle>
-                    <Dropdown.Menu>
+                <div className={style.filters}>
+                    <Dropdown as={NavItem}>
+                        <Dropdown.Toggle as={NavLink}>Precio</Dropdown.Toggle>
+                        <Dropdown.Menu>
 
-                        <Dropdown.Item onClick={orderPriceLow}> $ bajo - alto</Dropdown.Item>
-                        <Dropdown.Item onClick={orderPriceUp}>$ alto - bajo</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
+                            <Dropdown.Item onClick={orderPriceLow}> $ bajo - alto</Dropdown.Item>
+                            <Dropdown.Item onClick={orderPriceUp}>$ alto - bajo</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
 
-                <Dropdown as={NavItem}>
-                    <Dropdown.Toggle as={NavLink}>Stock</Dropdown.Toggle>
-                    <Dropdown.Menu>
+                <div className={style.filters}>
+                    <Dropdown as={NavItem}>
+                        <Dropdown.Toggle as={NavLink}>Stock</Dropdown.Toggle>
+                        <Dropdown.Menu>
 
-                        <Dropdown.Item onClick={orderStockLow}> bajo - alto</Dropdown.Item>
-                        <Dropdown.Item onClick={orderStockUp}> alto - bajo</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-
-                <Dropdown as={NavItem}>
-                    <Dropdown.Toggle as={NavLink}>Subcategorias</Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item>lapices</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
+                            <Dropdown.Item onClick={orderStockLow}> bajo - alto</Dropdown.Item>
+                            <Dropdown.Item onClick={orderStockUp}> alto - bajo</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
+                <div className={style.filters}>
+                    <Dropdown as={NavItem}>
+                        <Dropdown.Toggle as={NavLink}>Estado</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={byInactive} >Inactivos - Activos</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
             </div>
 
             <ul className={style.list}>
@@ -94,7 +104,7 @@ const GetProducts = () => {
                 </li>
 
                 {products.map((pro, index) => {
-                    const ratingWithTwoDecimals = pro.rating.toFixed(2); // Restringir a dos decimales
+                    const ratingWithTwoDecimals = pro?.rating?.toFixed(2); // Restringir a dos decimales
                     return (
                         <li className={style.li} key={pro._id}>
                             <Link className={style.lista} onClick={() => handlePut(pro)} to="put">

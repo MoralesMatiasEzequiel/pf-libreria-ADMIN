@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getAllProductsState, createProductState, modifiedProductState, editProductState, findsByNameState, clearProductsOfSeeState, orderByAZState, orderByZAState, orderPriceToLowState, orderPriceToUpState, orderStockToLowState, orderStockToUpState, disableProductState } from "./productsSlice";
+import { getAllProductsState, createProductState, modifiedProductState, editProductState, findsByNameState, clearProductsOfSeeState, orderByAZState, orderByZAState, orderPriceToLowState, orderPriceToUpState, orderStockToLowState, orderStockToUpState, disableProductState, productsByInactiveState } from "./productsSlice";
 
 export const getAllProducts = () => {
     return async (dispatch) => {
@@ -86,6 +86,12 @@ export const orderStockToUp = () => {
     return async (dispatch) => {
 
         dispatch(orderStockToUpState())
+    };
+};
+export const productsByInactive = () => {
+    return async (dispatch) => {
+
+        dispatch(productsByInactiveState())
     };
 };
 

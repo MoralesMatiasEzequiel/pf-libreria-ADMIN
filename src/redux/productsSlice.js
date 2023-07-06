@@ -78,7 +78,8 @@ export const productsSlice = createSlice({
 
             state.products = state.products.sort((a, b) => a.stock - b.stock)
 
-        }, orderStockToUpState: (state, action) => {
+        },
+         orderStockToUpState: (state, action) => {
 
             state.products = state.products.sort((a, b) => b.stock - a.stock)
 
@@ -88,11 +89,15 @@ export const productsSlice = createSlice({
             state.products = [action.payload, ...state.products.filter(pro => pro._id !== action.payload._id)]
             state.productsOfSee = [action.payload, ...state.productsOfSee.filter(pro => pro._id !== action.payload._id)]
         },
+        productsByInactiveState: (state, action) => {
+
+            state.products = state.products.sort((a, b) => a.active - b.active)
+        },
 
     }
 
 })
 
-export const { getAllProductsState, createProductState, modifiedProductState, editProductState, findsByNameState, clearProductsOfSeeState, orderByAZState, orderByZAState, orderPriceToLowState, orderPriceToUpState, orderStockToLowState, orderStockToUpState, disableProductState } = productsSlice.actions
+export const { getAllProductsState, createProductState, modifiedProductState, editProductState, findsByNameState, clearProductsOfSeeState, orderByAZState, orderByZAState, orderPriceToLowState, orderPriceToUpState, orderStockToLowState, orderStockToUpState, disableProductState, productsByInactiveState } = productsSlice.actions
 
 export default productsSlice.reducer
