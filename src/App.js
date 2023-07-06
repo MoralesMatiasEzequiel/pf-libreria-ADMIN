@@ -10,30 +10,41 @@ import Users from './components/views/Users/Users';
 import GetUsers from './components/common/GetUsers/GetUsers';
 import DetailUser from './components/views/DetailUser/DetailUser';
 import Orders from './components/views/Orders/Orders';
+import Login from './components/common/Login/Login';
+import { useSelector } from 'react-redux';
 
 
 axios.defaults.baseURL = "http://localhost:3001";
 
 function App() {
 
+  // const location = useLocation();
+  const { logged } = useSelector(state => state.admin);
+
   return (
     <div className="App">
-      <SideBar />
-      <Routes>
-        <Route path='/products' element={<Products />}>
-          <Route path=':get' element={<GetProducts />} />
-          <Route path=':post' element={<Post />} />
-          <Route path=':put' element={<PutPro />} />
-        </Route>
+      {!logged && <Login />}
+      {logged && (
+        <>
+          <SideBar />
+          <Routes>
+            <Route path="/products" element={<Products />}>
+              <Route path=":get" element={<GetProducts />} />
+              <Route path=":post" element={<Post />} />
+              <Route path=":put" element={<PutPro />} />
+            </Route>
 
-        <Route path='/users' element={<Users />}>
-          <Route path=':get' element={<GetUsers />} />
-          <Route path=':detail' element={<DetailUser />} />
-        </Route>
-        <Route path='/orders' element={<Orders />}/>
-      </Routes>
+            <Route path="/users" element={<Users />}>
+              <Route path=":get" element={<GetUsers />} />
+              <Route path=":detail" element={<DetailUser />} />
+            </Route>
+            <Route path="/orders" element={<Orders />} />
+          </Routes>
+        </>
+      )}
     </div>
   );
 }
 
 export default App;
+

@@ -3,6 +3,7 @@ import Products from "./productsSlice";
 import User from "./userSlice"
 import Orders from "./ordersSlice";
 import Subcategories from "./subcategoriesSlice"
+import Admin from "./adminSlice";
 
 
 export default configureStore({
@@ -10,6 +11,7 @@ export default configureStore({
         products: Products,
         user: User,
         orders: Orders,
-        subcategories: Subcategories
+        subcategories: Subcategories,
+        admin: Admin
      }   
 });

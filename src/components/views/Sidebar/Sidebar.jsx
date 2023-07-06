@@ -1,6 +1,6 @@
 import style from "./Sidebar.module.css";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const SideBar = () => {
 
@@ -44,7 +44,7 @@ const SideBar = () => {
                             </div>
                         </NavLink>
                     </li>
-                    
+
                 </ul>
                 <div className={style.homecont}>
                     <a href="http://localhost:3000/shop" className={style.shop} target="_blank">
