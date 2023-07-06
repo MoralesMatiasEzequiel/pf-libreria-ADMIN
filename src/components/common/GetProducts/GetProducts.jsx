@@ -112,7 +112,7 @@ const GetProducts = () => {
                             </Link>
                             <p className={style.liname}>{pro.name}</p>
                             <p className={style.limarc}>{pro.brand}</p>
-                            <p className={style.liprec}>{pro.price}</p>
+                            <p className={style.liprec}>{pro.salePrice ? pro.salePrice : pro.price}</p>   
                             <p className={style.listo}>{pro.stock}</p>
                             <p className={style.licat}>{getSubcategoryName(pro.subcategories[0])}</p>
                             <p className={style.lirat}>{ratingWithTwoDecimals}</p>
