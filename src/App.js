@@ -44,28 +44,3 @@ function App() {
 }
 
 export default App;
-
-/*
-return (
-    <div className="App">
-      <SideBar />
-      <Routes>
-        <Route path='/products' element={<Products />}>
-          <Route path=':get' element={<GetProducts />} />
-          <Route path=':post' element={<Post />} />
-          <Route path=':put' element={<PutPro />} />
-          <Route path=':disa' element={<DisaPro />} />
-        </Route>
-      </Routes>
-      <Routes>
-        <Route path='/users' element={<Users />}>
-          <Route path=':get' element={<GetUsers />} />
-          <Route path=':put' element={<PutUsers />} />
-        </Route>
-      </Routes>
-      <Routes>
-        <Route path='/users/:id' element={<PutUserID />} />
-      </Routes>
-    </div>
-  );
-*/
