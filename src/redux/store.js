@@ -6,7 +6,6 @@ import Subcategories from "./subcategoriesSlice"
 import Admin from "./adminSlice";
 
 
-
 export default configureStore({
     reducer:{
         products: Products,
@@ -15,4 +14,4 @@ export default configureStore({
         subcategories: Subcategories,
         admin: Admin
      }   
-}) 
+});

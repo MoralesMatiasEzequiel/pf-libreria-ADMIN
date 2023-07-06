@@ -23,7 +23,7 @@
     border: 1px solid #ff9e5c;
     padding: 10px 10px;
     margin: 15px 0px;
-    cursor: pointer;
+    /* cursor: none; */
     font-weight: 900;
 }
 
