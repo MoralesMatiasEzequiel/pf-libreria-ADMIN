@@ -1,5 +1,5 @@
-import Form from 'react-bootstrap/Form';
 
+import { Link } from "react-router-dom";
 import style from "./PutPro.module.css";
 import style1 from "../GetProducts/GetProducts.module.css";
 import style2 from "../PostProduct/PostProduct.module.css";
@@ -94,6 +94,10 @@ const PutPro = () => {
         setValueInput('')
         dispatch(clearProductsOfSee());
     }
+    const getSubcategoryName = (subcategoryId) => {
+        const subcategory = subcategories.find(subcat => subcat._id === subcategoryId);
+        return subcategory ? subcategory.name : "";
+    };
 
     //--------------------------------- CLOUDINARY --------------------------
     const [image, setImage] = useState("")
@@ -142,7 +146,8 @@ const PutPro = () => {
             salePrice: productOfEdit.salePrice,
             description: productOfEdit.description,
             image: productOfEdit.image,
-            active: productOfEdit.active
+            active: productOfEdit.active,
+            rating: productOfEdit.rating
         })
         setRadioValue(productOfEdit.active === true ? '2' : '1')
 
@@ -151,51 +156,54 @@ const PutPro = () => {
 
     return (
 
-        <div >
+        <div className={style1.postcont}>
 
-            {!prodOfEdit._id && 
+            {!prodOfEdit._id &&
                 <div className={style.searchBar}>
                     <h4>Buscar producto para editar:</h4>
-                    <input value={valueInput} onChange={handleProductsOfSee} type="text" />
+                    <input placeholder="Nombre de producto" value={valueInput} onChange={handleProductsOfSee} type="text" />
                     <button onClick={handleclearProductsOfSee}>Limpiar búsqueda</button>
                 </div>
             }
 
-            {!productOfEdit._id && productOfSee.length > 0 && 
-            
+            {!productOfEdit._id && productOfSee.length > 0 &&
+
                 <ul className={style1.list}>
                     <li className={style1.li}>
-             
-                    <p className={style1.lista}>Editar</p>
-                    <p className={style1.liname}>Titulo:</p>
-                    <p className={style1.limarc}>Marca:</p>
-                    <p className={style1.liprec}>Precio:</p>
-                    <p className={style1.listo}>Stock:</p>
-                    <p className={style1.licat}>Sub-categ:</p>
-                    <p className={style1.lirat}>Rating:</p>
-                    <p className={style1.lista}>Estado:</p>
+
+                        <p className={style1.lista}>Editar</p>
+                        <p className={style1.liname}>Titulo:</p>
+                        <p className={style1.limarc}>Marca:</p>
+                        <p className={style1.liprec}>Precio:</p>
+                        <p className={style1.listo}>Stock:</p>
+                        <p className={style1.licat}>Sub-categ:</p>
+                        <p className={style1.lirat}>Rating:</p>
+                        <p className={style1.lista}>Estado:</p>
                     </li>
                     {productsOfSee.map(pro => {
+
+                        const ratingWithTwoDecimals = pro?.rating?.toFixed(2); // Restringir a dos decimales
                         return (
                             <li className={style1.li}>
-                                <button className={style1.lista} onClick={() => handlePut(pro)}>
-                                    <i class="bi bi-pencil-square"> </i>
-                                </button>
-                         
 
-                            <p className={style1.liname}> {pro.name}</p>
 
-                            <p className={style1.limarc}>{pro.brand}</p>
+                                <Link className={style1.lista} onClick={() => handlePut(pro)}>
+                                    <i className="bi bi-pencil-square"></i>
+                                </Link>
 
-                            <p className={style1.liprec}>{pro.price}</p>
+                                <p className={style1.liname}> {pro.name}</p>
 
-                            <p className={style1.listo}>{pro.stock}</p>
+                                <p className={style1.limarc}>{pro.brand}</p>
 
-                            <p className={style1.licat}>{pro.subcategories[0]}</p>
+                                <p className={style1.liprec}>{pro.price}</p>
 
-                            <p className={style1.lirat}>{pro.rating}</p>
+                                <p className={style1.listo}>{pro.stock}</p>
 
-                            <p className={style1.lista}>{pro.active ? "Activo" : "Inactivo"}</p>
+                                <p className={style1.licat}>{getSubcategoryName(pro.subcategories[0])}</p>
+
+                                <p className={style1.lirat}>{ratingWithTwoDecimals}</p>
+
+                                <p className={style1.lista}>{pro.active ? "Activo" : "Inactivo"}</p>
 
                             </li>
                         )
@@ -306,7 +314,7 @@ const PutPro = () => {
                         {errors.image && <p className="error">{errors.image}</p>}
                         {/* ------------- image ----------------  */}
 
-                        {!image && <img src={prodOfEdit.image} alt="" style={{ width: "75px",marginTop: "0px" }} />
+                        {!image && <img src={prodOfEdit.image} alt="" style={{ width: "75px", marginTop: "0px" }} />
                         }
                     </div>
                 </div>
