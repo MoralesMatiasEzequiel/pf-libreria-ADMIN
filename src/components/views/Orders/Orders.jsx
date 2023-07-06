@@ -36,17 +36,16 @@ const Orders = () => {
           console.log(productNames);
           return (
             <div className={style.data} key={index}>
-              <p>Estado de la compra: {order.state}</p>
-              <p>Nombre del comprador: {order.name} {order.surname}</p>
-              <p>Correo: {order.email}</p>
-              <p>Teléfono: {order.phone}</p>
-              <p>DNI: {order.dni}</p>
-              <p>Dirección: Calle {order.street}, n° {order.number}, piso {order.floor}, dpto {order.apartment}</p>
-              <p>Ciudad: {order.city}, {order.province}</p>
-              <p>Comentario(s): {order.comentary}</p>
-              <p>Producto(s) comprado(s): {productNames.join(", ")}</p>
-              <p>Costo final: ${order.finalPrice}.-</p>
-              <p>----------------------------------------------------------------------------------</p>
+              <p><span>Estado de la compra: </span>{order.state}</p>
+              <p><span>Nombre del comprador: </span>{order.name} {order.surname}</p>
+              <p><span>Correo: </span>{order.email}</p>
+              <p><span>Teléfono: </span>{order.phone}</p>
+              <p><span>DNI: </span>{order.dni}</p>
+              <p><span>Dirección:</span> Calle {order.street}, n° {order.number}, piso {order.floor}, dpto {order.apartment}</p>
+              <p><span>Ciudad: </span>{order.city}, {order.province}</p>
+              <p><span>Comentario(s): </span>{order.comentary}</p>
+              <p><span>Producto(s) comprado(s): </span>{productNames.join(", ")}</p>
+              <p><span>Costo final: </span>${order.finalPrice}.-</p>
             </div>
           );
         })}
