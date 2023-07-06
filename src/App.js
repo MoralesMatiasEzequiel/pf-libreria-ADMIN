@@ -13,10 +13,6 @@ import Orders from './components/views/Orders/Orders';
 import Login from './components/common/Login/Login';
 import { useSelector } from 'react-redux';
 
-
-//axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://server-plumalibreria.onrender.com";;
-
 function App() {
 
   // const location = useLocation();
