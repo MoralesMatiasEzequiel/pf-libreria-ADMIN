@@ -67,10 +67,15 @@
 
 .li {
     display: flex;
-    border: #000000 solid 4px;
+    border: #000000 solid 2px;
     width: fit-content;
     padding-right: 5px;
     border-bottom: transparent;
+}
+
+.li:first-child {
+    background-color: #ffdbc3;
+   
 }
 
 .li:last-child {
@@ -140,7 +145,7 @@
 
 /* subcategory*/
 .licat {
-    min-width: 250px;
+    min-width: 150px;
     text-align: center;
     display: flex;
     justify-content: left;
@@ -170,4 +175,61 @@
     border-right: 2px solid #000000;
     align-items: center;
     margin: 0px 0px;
+}
+
+/* style3-getUsers */
+
+.li2 {
+    display: flex;
+    border: #000000 solid 2px;
+    border-bottom: transparent;
+    height: fit-content;
+    
+}
+
+.li2:first-child {
+    background-color: #ffdbc3;
+
+}
+
+.li2:last-child {
+    border-bottom: #000000 solid 2px;
+}
+
+.editar {
+    width: 60px;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: #000000 solid 2px;
+}
+
+.nombre {
+    min-width: 270px;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: #000000 solid 2px;
+}
+.nombre2 {
+    min-width: 320px;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: #000000 solid 2px;
+}
+.estado {
+    min-width: 110px;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: #000000 solid 2px;
 }

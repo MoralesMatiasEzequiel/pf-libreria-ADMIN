@@ -44,14 +44,7 @@ const SideBar = () => {
                             </div>
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink className={style.btnNav} to={"/metrics"}>
-                            <div className={style.divli}>
-                            <i class="bi bi-speedometer2"></i> <p>Métricas</p>
-                            <i class="bi bi-caret-right-fill"></i>
-                            </div>
-                        </NavLink>
-                    </li>
+                    
                 </ul>
                 <div className={style.homecont}>
                     <a href="http://localhost:3000/shop" className={style.shop} target="_blank">

@@ -33,9 +33,7 @@ const DetailUser = () => {
 
   return (
       <div className={style.container}>
-        <Link to="get" className={style.links}>&lt; Volver a lista de usuarios</Link>
-        <br />
-        <br />
+        
         <div className={style.conta}>
           <div className={style.imgContainer}>
             <img className={style.img} src={detail.picture} alt={detail.name}/>
