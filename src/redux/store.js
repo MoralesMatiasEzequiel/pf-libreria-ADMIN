@@ -5,7 +5,6 @@ import Orders from "./ordersSlice";
 import Subcategories from "./subcategoriesSlice"
 
 
-
 export default configureStore({
     reducer:{
         products: Products,
@@ -13,4 +12,4 @@ export default configureStore({
         orders: Orders,
         subcategories: Subcategories
      }   
-}) 
+});
