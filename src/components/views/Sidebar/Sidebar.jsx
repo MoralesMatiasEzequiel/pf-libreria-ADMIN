@@ -27,7 +27,7 @@ const SideBar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className={style.btnNav} to={"/users"}>
+                        <NavLink className={style.btnNav} to={"/users/get"}>
                             <div className={style.divli}>
                             <i class="bi bi-people-fill"></i>
                             <p>Usuarios</p>
