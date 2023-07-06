@@ -37,19 +37,17 @@ const DetailUser = () => {
         <div className={style.conta}>
           <div className={style.imgContainer}>
             <img className={style.img} src={detail.picture} alt={detail.name}/>
-            <br />
-            <br />
             <h4>{detail.nickname}</h4>
           </div>
           <div className={style.dataContainer}>
-            <p>Nombre: {detail.name}</p>
-            <p>Nickname: {detail.nickname}</p>
-            <p>E-mail: {detail.email}</p>
-            <p>Reviews: {detail.reviews?.length === 0 ? "No hay reviews." : detail.reviews?.length + 1}</p>
-            <p>Producto(s) favorito(s): {detail.favorites?.length === 0 ? "No hay favoritos." : getFavoriteNames(detail.favorites).join(", ")}</p>
-            <p>Compra(s) realizada(s): {detail.orders?.length === 0 ? "No hay compras realizadas." : detail.orders?.length + 1}</p>
-            <p>ID user: {detail._id}</p>
-            <p>Status: {detail.active === true ? "Activo" : "Inactivo"}</p>
+            <p><span>Nombre: </span>{detail.name}</p>
+            <p><span>Nickname: </span>{detail.nickname}</p>
+            <p><span>E-mail: </span>{detail.email}</p>
+            <p><span>Reviews: </span>{detail.reviews?.length === 0 ? "No hay reviews." : detail.reviews?.length + 1}</p>
+            <p><span>Producto(s) favorito(s): </span>{detail.favorites?.length === 0 ? "No hay favoritos." : getFavoriteNames(detail.favorites).join(", ")}</p>
+            <p><span>Compra(s) realizada(s): </span>{detail.orders?.length === 0 ? "No hay compras realizadas." : detail.orders?.length + 1}</p>
+            <p><span>ID user: </span>{detail._id}</p>
+            <p><span>Status: </span>{detail.active === true ? "Activo" : "Inactivo"}</p>
             {detail.active === true ? <button onClick={handleBanUser}>Bannear usuario</button> : <button onClick={handleBanUser}>Activar usuario</button>}
           </div>
         </div>

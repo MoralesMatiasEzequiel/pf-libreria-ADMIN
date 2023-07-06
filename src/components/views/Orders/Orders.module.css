@@ -49,12 +49,12 @@ background-color: white; /* Color de la esquina de la barra de desplazamiento */
 
 .data{
     background-color: #ff9e5c;
-    margin-bottom: -16px;
-    text-align: left;
+    text-align: justify;
     padding: 15px;
     color: white;
+    border-bottom: 4px dashed white;
 }
 
-.data p{
-    font-weight: 500;
+.data span{
+    font-weight: 700;
 }

@@ -1,8 +1,10 @@
 .container{
-    width: 18rem;
+    width: 24rem;
+    height: 20rem;
     margin: 0 auto;
     padding: 2rem;
     border: 5px solid #ff9e5c;
+    border-radius: 5px;
     color: black;
     background-color: white;
     text-align: left;
@@ -13,15 +15,30 @@
 }
 
 .container label{
+    font-size: 25px;
     margin: 4px;
 }
 
 .container input{
+    font-size: 20px;
     text-align: left;
 }
 
 .container button{
+    font-size: 25px;
+    color: white;
     margin-top: 15px;
+    background-color: #ff9e5c;
+    border: 1px solid #ff9e5c;
+    border-radius: 5px;
+    margin-left: auto;
+}
+.container button:hover{
+    color: #ff9e5c;
+    margin-top: 15px;
+    background-color: white;
+    border: 1px solid #ff9e5c;
+    border-radius: 5px;
 }
 
 .container p{
