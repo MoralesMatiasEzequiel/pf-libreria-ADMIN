@@ -47,7 +47,7 @@ const SideBar = () => {
 
                 </ul>
                 <div className={style.homecont}>
-                    <a href="http://localhost:3000/shop" className={style.shop} target="_blank">
+                    <a href="https://plumalibreria.vercel.app" className={style.shop} target="_blank">
                         <i class="bi bi-shop"></i>
                     </a>
                 </div>
