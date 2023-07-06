@@ -1,6 +1,6 @@
 import style from "./Sidebar.module.css";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const SideBar = () => {
 
@@ -40,14 +40,6 @@ const SideBar = () => {
                             <div className={style.divli} >
                             <i class="bi bi-table"></i>
                             <p>Compras</p>
-                            <i class="bi bi-caret-right-fill"></i>
-                            </div>
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className={style.btnNav} to={"/metrics"}>
-                            <div className={style.divli}>
-                            <i class="bi bi-speedometer2"></i> <p>Métricas</p>
                             <i class="bi bi-caret-right-fill"></i>
                             </div>
                         </NavLink>
