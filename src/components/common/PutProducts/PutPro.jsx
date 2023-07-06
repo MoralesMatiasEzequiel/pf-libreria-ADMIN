@@ -1,10 +1,13 @@
 
+import { Link } from "react-router-dom";
+import style from "./PutPro.module.css";
 import style1 from "../GetProducts/GetProducts.module.css";
 import style2 from "../PostProduct/PostProduct.module.css";
-
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 import validation from "../PostProduct/validation";
 
-import { modifiedProduct, editProduct, findsByName, clearProductsOfSee } from "../../../redux/productsActions";
+import { modifiedProduct, editProduct, findsByName, clearProductsOfSee, disableProduct } from "../../../redux/productsActions";
 import { FormGroup, Input } from "reactstrap"
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +17,7 @@ const PutPro = () => {
 
     const dispatch = useDispatch();
 
-    const { productOfEdit, productsOfSee } = useSelector(state => state.products);
+    const { productOfEdit, productsOfSee, products } = useSelector(state => state.products);
     const { subcategories } = useSelector(state => state.subcategories);
 
     const [prodOfEdit, setProdOfEdit] = useState({});
@@ -23,6 +26,37 @@ const PutPro = () => {
     const [productOfSee, setProductOfSee] = useState([]);
     const [valueInput, setValueInput] = useState('');
 
+    // disable
+
+
+    const [radioValue, setRadioValue] = useState();
+    const radios = [
+        { name: 'Deshabilitado', value: '1' },
+        { name: 'Activo', value: '2' }
+    ];
+
+    const handleDisa = (event) => {
+        setRadioValue(event.currentTarget.value)
+        setProdOfEdit({
+            ...prodOfEdit,
+            active: event.currentTarget.value === "2" ? true : false
+        })
+    }
+    const handleDisable = (pro) => {
+        let proAct = {
+            subcategories: pro.subcategories,
+            _id: pro._id,
+            name: pro.name,
+            brand: pro.brand,
+            stock: pro.stock,
+            price: pro.price,
+            salePrice: pro.salePrice,
+            description: pro.description,
+            image: pro.image,
+            active: !pro.active
+        }
+        dispatch(disableProduct(proAct))
+    }
 
     const handlePut = (product) => {
         dispatch(modifiedProduct(product))
@@ -33,7 +67,7 @@ const PutPro = () => {
 
         dispatch(editProduct(prodOfEdit));
         dispatch(modifiedProduct({}))
-
+        setProductOfSee([])
 
     };
     const handleChange = (event) => {
@@ -53,13 +87,17 @@ const PutPro = () => {
     const handleProductsOfSee = (event) => {
         setValueInput(event.target.value)
         dispatch(findsByName(event.target.value));
+
     }
-    const handleclearProductsOfSee = (event) => {
+    const handleclearProductsOfSee = () => {
         setProductOfSee([])
         setValueInput('')
         dispatch(clearProductsOfSee());
     }
-
+    const getSubcategoryName = (subcategoryId) => {
+        const subcategory = subcategories.find(subcat => subcat._id === subcategoryId);
+        return subcategory ? subcategory.name : "";
+    };
 
     //--------------------------------- CLOUDINARY --------------------------
     const [image, setImage] = useState("")
@@ -92,65 +130,87 @@ const PutPro = () => {
             subcategories: [event.target.value],
         });
     };
+
+
+
     useEffect(() => {
         setProductOfSee(productsOfSee)
-        setProdOfEdit(productOfEdit)
-    }, [productOfEdit, productsOfSee])
+
+        setProdOfEdit({
+            subcategories: productOfEdit.subcategories,
+            _id: productOfEdit._id,
+            name: productOfEdit.name,
+            brand: productOfEdit.brand,
+            stock: productOfEdit.stock,
+            price: productOfEdit.price,
+            salePrice: productOfEdit.salePrice,
+            description: productOfEdit.description,
+            image: productOfEdit.image,
+            active: productOfEdit.active,
+            rating: productOfEdit.rating
+        })
+        setRadioValue(productOfEdit.active === true ? '2' : '1')
+
+
+    }, [productOfEdit, productsOfSee, products, valueInput, products])
 
     return (
 
-        <div >
-            {!prodOfEdit._id && <div >
-                <h4>buscar producto</h4>
-                <label htmlFor=""> buscar</label>
-                <input value={valueInput} onChange={handleProductsOfSee} type="text" />
-                <button onClick={handleclearProductsOfSee}>Limpiar busqueda</button>
+        <div className={style1.postcont}>
 
-            </div>}
+            {!prodOfEdit._id &&
+                <div className={style.searchBar}>
+                    <h4>Buscar producto para editar:</h4>
+                    <input placeholder="Nombre de producto" value={valueInput} onChange={handleProductsOfSee} type="text" />
+                    <button onClick={handleclearProductsOfSee}>Limpiar búsqueda</button>
+                </div>
+            }
 
-            {!productOfEdit._id && productOfSee.length > 0 && <ul className={style1.list}>
+            {!productOfEdit._id && productOfSee.length > 0 &&
 
-                <li className={style1.li}>
+                <ul className={style1.list}>
+                    <li className={style1.li}>
 
-                    <p className={style1.lista}>Editar</p>
-                    <p className={style1.liname}>Titulo:</p>
-                    <p className={style1.limarc}>Marca:</p>
-                    <p className={style1.liprec}>Precio:</p>
-                    <p className={style1.listo}>Stock:</p>
-                    <p className={style1.licat}>Sub-categ:</p>
-                    <p className={style1.lirat}>Rating:</p>
+                        <p className={style1.lista}>Editar</p>
+                        <p className={style1.liname}>Titulo:</p>
+                        <p className={style1.limarc}>Marca:</p>
+                        <p className={style1.liprec}>Precio:</p>
+                        <p className={style1.listo}>Stock:</p>
+                        <p className={style1.licat}>Sub-categ:</p>
+                        <p className={style1.lirat}>Rating:</p>
+                        <p className={style1.lista}>Estado:</p>
+                    </li>
+                    {productsOfSee.map(pro => {
 
-                </li>
-
-                {productsOfSee.map(pro => {
-
-                    return (
-                        <li className={style1.li}>
-
-                            <button className={style1.lista} onClick={() => handlePut(pro)}>
-                                <i class="bi bi-pencil-square"> </i>
-                            </button>
+                        const ratingWithTwoDecimals = pro?.rating?.toFixed(2); // Restringir a dos decimales
+                        return (
+                            <li className={style1.li}>
 
 
-                            <p className={style1.liname}> {pro.name}</p>
+                                <Link className={style1.lista} onClick={() => handlePut(pro)}>
+                                    <i className="bi bi-pencil-square"></i>
+                                </Link>
 
-                            <p className={style1.limarc}>{pro.brand}</p>
+                                <p className={style1.liname}> {pro.name}</p>
 
-                            <p className={style1.liprec}>{pro.price}</p>
+                                <p className={style1.limarc}>{pro.brand}</p>
 
-                            <p className={style1.listo}>{pro.stock}</p>
+                                <p className={style1.liprec}>{pro.price}</p>
 
-                            <p className={style1.licat}>{pro.subcategories[0]}</p>
+                                <p className={style1.listo}>{pro.stock}</p>
 
-                            <p className={style1.lirat}>{pro.rating}</p>
+                                <p className={style1.licat}>{getSubcategoryName(pro.subcategories[0])}</p>
 
+                                <p className={style1.lirat}>{ratingWithTwoDecimals}</p>
 
+                                <p className={style1.lista}>{pro.active ? "Activo" : "Inactivo"}</p>
 
-                        </li>
-                    )
-                })}
+                            </li>
+                        )
+                    })}
+                </ul>
+            }
 
-            </ul>}
 
 
             {prodOfEdit._id && <form action="" className={style2.form} onSubmit={handleSubmit}>
@@ -214,34 +274,48 @@ const PutPro = () => {
                         />
                         {errors.description && <p className="error">{errors.description}</p>}
 
-                        {!image && <img src={prodOfEdit.image} style={{ width: "150px" }} />
-}
+                        <div className={style2.subcategoriesLabel}>
+                            <label htmlFor="subcategories">Subcategoría</label>
+                            <Input className={style2.subcategories} type="select" name="subcategories" value={prodOfEdit.subcategories} onChange={handleSubcaty}>
+                                <option value="">Seleccione una subcategoría</option>
+                                {subcategories.map((subcategory) => (
+                                    <option value={subcategory._id}>{subcategory.name}</option>
+                                ))}
+                            </Input>
+                            {errors.subcategories && <p className="error">{errors.subcategories}</p>}
+                        </div>
+
+                        <ButtonGroup>
+                            {radios.map((radio, idx) => (
+                                <ToggleButton
+                                    key={idx}
+                                    id={`radio-${idx}`}
+                                    type="radio"
+                                    variant={idx % 2 ? 'outline-success' : 'outline-danger'}
+                                    name="radio"
+                                    value={radio.value}
+                                    checked={radioValue === radio.value}
+                                    onChange={handleDisa}
+                                >
+                                    {radio.name}
+                                </ToggleButton>
+                            ))}
+                        </ButtonGroup>
 
                         {/* ------------- image ---------------- */}
-                        <FormGroup className={style1.subirImg}>
+                        <FormGroup className={style2.subirImg}>
                             <label htmlFor="image">Subir Imagen</label><br />
                             <Input type="file" name="image" placeholder="Subir imagen" onChange={uploadImage} />
                             {
-                                loading ? (<p>Cargando imagen...</p>) : (<img src={image} style={{ width: "150px" }} />)
+                                loading ? (<p>Cargando imagen...</p>) : (<img src={image} alt="" style={{ width: "150px" }} />)
                             }
                         </FormGroup>
 
                         {errors.image && <p className="error">{errors.image}</p>}
                         {/* ------------- image ----------------  */}
 
-                        <label htmlFor="subcategories">Subcategoría</label>
-                        <Input
-                        type="select"
-                        name="subcategories"
-                        value={prodOfEdit.subcategories}
-                        onChange={handleSubcaty}
-                        >
-                        <option value="">Seleccione una subcategoría</option>
-                        {subcategories.map((subcategory) => (
-                            <option value={subcategory._id}>{subcategory.name}</option>
-                        ))}
-                        </Input>
-                        {errors.subcategories && <p className="error">{errors.subcategories}</p>}
+                        {!image && <img src={prodOfEdit.image} alt="" style={{ width: "75px", marginTop: "0px" }} />
+                        }
                     </div>
                 </div>
                 <button className={style2.createBtn} disabled={!prodOfEdit.brand || !prodOfEdit.description || !prodOfEdit.name || !prodOfEdit.image || errors.name || errors.brand || errors.image || errors.description || errors.stock || errors.price}>Editar producto</button>
