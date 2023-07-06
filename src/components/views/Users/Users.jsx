@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getAllUser } from "../../../redux/userActions";
 import GetUsers from "../../common/GetUsers/GetUsers";
 import DetailUser from "../DetailUser/DetailUser";
+import { useEffect } from "react";
 
 const Users = () => {
     let { pathname } = useLocation();
@@ -14,6 +15,9 @@ const Users = () => {
 
         dispatch(getAllUser());
     }
+    useEffect(() => {
+        dispatch(getAllUser()) 
+    }, [])
 
     return (
         <div className={style.producontainer}>
