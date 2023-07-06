@@ -9,10 +9,6 @@ const GetUsers = () => {
     const { users } = useSelector(state => state.user);
     const dispatch = useDispatch();
 
-    // const handlePut = (id)=>{
-    //     dispatch(putUserID(id))
-    // }
-
     const handlerDetailUser = (user) => {
         dispatch(getUserID(user))
     }

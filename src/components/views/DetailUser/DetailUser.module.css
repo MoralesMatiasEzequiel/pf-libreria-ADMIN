@@ -8,6 +8,20 @@
 .conta{
     height: 80vh;
     overflow: auto;
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.links {
+    text-decoration: none;
+    color: black;
+}
+
+.links:hover {
+    color: white;
+    transition-duration: 0.3s;
 }
 
 .imgContainer{

@@ -8,7 +8,6 @@ import GetProducts from './components/common/GetProducts/GetProducts'
 import PutPro from './components/common/PutProducts/PutPro';
 import Users from './components/views/Users/Users';
 import GetUsers from './components/common/GetUsers/GetUsers';
-import PutUsers from './components/common/PutUser/PutUser';
 import DetailUser from './components/views/DetailUser/DetailUser';
 import Orders from './components/views/Orders/Orders';
 
@@ -16,8 +15,6 @@ import Orders from './components/views/Orders/Orders';
 axios.defaults.baseURL = "http://localhost:3001";
 
 function App() {
-
-  // const location = useLocation();
 
   return (
     <div className="App">
@@ -31,7 +28,6 @@ function App() {
 
         <Route path='/users' element={<Users />}>
           <Route path=':get' element={<GetUsers />} />
-          <Route path=':put' element={<PutUsers />} />
           <Route path=':detail' element={<DetailUser />} />
         </Route>
         <Route path='/orders' element={<Orders />}/>

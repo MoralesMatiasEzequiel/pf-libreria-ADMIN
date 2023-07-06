@@ -33,18 +33,24 @@ const DetailUser = () => {
 
   return (
       <div className={style.container}>
+        <Link to="get" className={style.links}>&lt; Volver a lista de usuarios</Link>
+        <br />
+        <br />
         <div className={style.conta}>
           <div className={style.imgContainer}>
             <img className={style.img} src={detail.picture} alt={detail.name}/>
-            <h5>{detail.nickname}</h5>
+            <br />
+            <br />
+            <h4>{detail.nickname}</h4>
           </div>
           <div className={style.dataContainer}>
-            <p>ID: {detail._id}</p>
+            <p>Nombre: {detail.name}</p>
             <p>Nickname: {detail.nickname}</p>
             <p>E-mail: {detail.email}</p>
             <p>Reviews: {detail.reviews?.length === 0 ? "No hay reviews." : detail.reviews?.length + 1}</p>
             <p>Producto(s) favorito(s): {detail.favorites?.length === 0 ? "No hay favoritos." : getFavoriteNames(detail.favorites).join(", ")}</p>
             <p>Compra(s) realizada(s): {detail.orders?.length === 0 ? "No hay compras realizadas." : detail.orders?.length + 1}</p>
+            <p>ID user: {detail._id}</p>
             <p>Status: {detail.active === true ? "Activo" : "Inactivo"}</p>
             {detail.active === true ? <button onClick={handleBanUser}>Bannear usuario</button> : <button onClick={handleBanUser}>Activar usuario</button>}
           </div>
