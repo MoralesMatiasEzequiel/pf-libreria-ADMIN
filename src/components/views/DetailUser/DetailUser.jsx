@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { updateUserStatus  } from "../../../redux/userActions";
+import { getAllProducts } from "../../../redux/productsActions";
 
 const DetailUser = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const DetailUser = () => {
   
 
   useEffect(() => {
-
+    dispatch(getAllProducts())
   }, [detail])
 
   const handleBanUser = () => {

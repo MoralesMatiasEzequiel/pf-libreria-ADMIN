@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllOrders } from "../../../redux/ordersActions";
+import { getAllProducts } from "../../../redux/productsActions";
 
 const Orders = () => {
   let { pathname } = useLocation();
@@ -13,6 +14,7 @@ const Orders = () => {
 
   useEffect(() => {
     dispatch(getAllOrders());
+    dispatch(getAllProducts())
   }, []);
 
   const getProductNames = (productIds) => {
@@ -31,6 +33,7 @@ const Orders = () => {
       <div className={style.dataCont}>
         {orders.map((order, index) => {
           const productNames = getProductNames(order.products);
+          console.log(productNames);
           return (
             <div className={style.data} key={index}>
               <p>Estado de la compra: {order.state}</p>
