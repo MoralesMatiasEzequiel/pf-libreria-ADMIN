@@ -16,7 +16,12 @@ const DetailUser = () => {
   }, [detail])
 
   const handleBanUser = () => {
-    dispatch(updateUserStatus(detail._id, false));
+    if(detail.active){
+      dispatch(updateUserStatus(detail._id, false));
+    } else {
+      dispatch(updateUserStatus(detail._id, true));
+    }
+    
   };
 
   const getFavoriteNames = (favoriteIds) => {
