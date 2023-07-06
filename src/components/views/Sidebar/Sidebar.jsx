@@ -44,6 +44,7 @@ const SideBar = () => {
                             </div>
                         </NavLink>
                     </li>
+
                 </ul>
                 <div className={style.homecont}>
                     <a href="http://localhost:3000/shop" className={style.shop} target="_blank">
